@@ -37,6 +37,12 @@ Route::get('/Donor',[DonorController::class,'donor'])->name('donor');
 Route::get('/Expense',[ExpenseController::class,'expense'])->name('expense');
 Route::get('/Expense/Category',[ExpenseCategoryController::class,'expense_category'])->name('expense.category');
 Route::get('/Location',[LocationController::class,'location'])->name('location');
+Route::get('/Location/create',[LocationController::class,'location_create'])->name('location.create');
+Route::post('/Location/store',[LocationController::class,'location_store'])->name('location.store');
+Route::get('/Location/delete/{id}',[LocationController::class,'location_delete'])->name('location.delete');
+Route::post('/Location/update/{id}',[LocationController::class,'location_update'])->name('location.update');
+Route::get('/Location/edit/{id}',[LocationController::class,'location_edit'])->name('location.edit');
+Route::get('/Location/view/{id}',[LocationController::class,'location_view'])->name('location.view');
 Route::get('/Volunteer',[VolunteerController::class,'volunteer'])->name('volunteer');
 Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis'])->name('volunteer.to.crisis');
 
