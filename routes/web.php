@@ -28,17 +28,17 @@ use App\Http\Controllers\Frontend\HomeController as FrontendHome;
 |
 */
 //Backend Routes
-Route::get('/',[HomeController::class,'home']);
-Route::get('/Dashboard',[DashboardController::class,'dashboard']);
-Route::get('/Crisis',[CrisisController::class,'crisis']);
-Route::get('/Crisistypes',[CrisistypesController::class,'crisistypes']);
-Route::get('/Donation',[DonationController::class,'donation']);
-Route::get('/Donor',[DonorController::class,'donor']);
-Route::get('/Expense',[ExpenseController::class,'expense']);
-Route::get('/Expense/Category',[ExpenseCategoryController::class,'expense_category']);
-Route::get('/Location',[LocationController::class,'location']);
-Route::get('/Volunteer',[VolunteerController::class,'volunteer']);
-Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis']);
+Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/Dashboard',[DashboardController::class,'dashboard'])->name('dashbord');
+Route::get('/Crisis',[CrisisController::class,'crisis'])->name('crisis');
+Route::get('/Crisistypes',[CrisistypesController::class,'crisistypes'])->name('crisis.types');
+Route::get('/Donation',[DonationController::class,'donation'])->name('donation');
+Route::get('/Donor',[DonorController::class,'donor'])->name('donor');
+Route::get('/Expense',[ExpenseController::class,'expense'])->name('expense');
+Route::get('/Expense/Category',[ExpenseCategoryController::class,'expense_category'])->name('expense.category');
+Route::get('/Location',[LocationController::class,'location'])->name('location');
+Route::get('/Volunteer',[VolunteerController::class,'volunteer'])->name('volunteer');
+Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis'])->name('volunteer.to.crisis');
 
 
 //Frontend Routes
