@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+//Backend
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CrisisController;
 use App\Http\Controllers\Backend\CrisistypesController;
@@ -13,6 +14,9 @@ use App\Http\Controllers\Backend\VolunteerController;
 use App\Http\Controllers\Backend\VolunteerTocrisisController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
+//Frontend 
+use App\Http\Controllers\Frontend\HomeController as FrontendHome;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +27,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Backend Routes
 Route::get('/',[HomeController::class,'home']);
 Route::get('/Dashboard',[DashboardController::class,'dashboard']);
 Route::get('/Crisis',[CrisisController::class,'crisis']);
@@ -36,3 +40,6 @@ Route::get('/Location',[LocationController::class,'location']);
 Route::get('/Volunteer',[VolunteerController::class,'volunteer']);
 Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis']);
 
+
+//Frontend Routes
+Route::get('/front-end',[FrontendHome::class,'fhome'])->name('f.home');
