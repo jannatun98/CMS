@@ -14,7 +14,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Crisis Types
                             </a>
-                            <a class="nav-link" href="{{url('/location')}}">
+                            <a class="nav-link" href="{{url('/Crisis')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Location
                             </a>
