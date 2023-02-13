@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class CrisisController extends Controller
 {
     public function crisis(){
-        return view('backend.pages.crisis');
+        return view('backend.pages.crisis.crisis');
+    }
+
+    public function crisisform(){
+        return view('backend.pages.crisis.crisisform');
     }
 }
