@@ -16,10 +16,7 @@
     <label for="date">Date</label>
     <input type="date" class="form-control" name="date" placeholder="Enter date">
   </div>
-  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Back</button>
 </form>
 </div>
-
-
-
 @endsection

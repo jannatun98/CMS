@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('crisis', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('name',100);
-            $table->string('location',100);
-            $table->string('crisis_type',100);
-            $table->string('date',100);
+           
+            $table->string("name",50);
+            $table->string("location",50);
+            $table->string("crisis_type");
+            $table->string("date");
             $table->timestamps();
         });
     }

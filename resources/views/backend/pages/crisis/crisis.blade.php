@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Image</th>
+    
       <th scope="col">Name</th>
       <th scope="col">Location</th>
       <th scope="col">Crisis Type</th>
@@ -21,15 +21,15 @@
   @foreach($crisis as $cry)
     <tr>
       <th scope="row">{{$cry->id}}</th>
-      <td></td>
+      
       <td>{{$cry->name}}</td>
       <td>{{$cry->location}}</td>
       <td>{{$cry->crisis_type}}</td>
       <td>{{$cry->date}}</td>
       <td>
-        <a class="btn btn-success" href="">View</a>
-        <a class="btn btn-primary" href="">Edit</a>
-        <a class="btn btn-danger" href="">Delete</a>
+        <a class="btn btn-success" href="{{route('crisis.view',$cry->id)}}">View</a>
+        <a class="btn btn-primary" href="{{route('crisis.edit',$cry->id)}}">Edit</a>
+        <a class="btn btn-danger" href="{{route('crisis.delete',$cry->id)}}">Delete</a>
 
       </td>
 

@@ -20,8 +20,8 @@ class LocationController extends Controller
 
     public function location_store(Request $request){
         Location::create([
-            'name'=>$request->location_name,
-            'address'=>$request->location_address,
+            "name"=>$request->location_name,
+            "address"=>$request->location_address,
         ]);
         return redirect()->route('location');
     }
@@ -31,15 +31,12 @@ class LocationController extends Controller
         return redirect()->back();
     }
 
-    public function location_view($id){
-        $locations=Location::find($id);
-        return view('backend.pages.location.view',compact('locations'));
-    }
 
     public function location_edit($id){
         $locations=Location::find($id);
         return view('backend.pages.location.edit',compact('locations'));
     }
+
 
     public function location_update(Request $request ,$id){
         $locations=Location::find($id);
@@ -48,6 +45,11 @@ class LocationController extends Controller
             'address'=>$request->location_address,
         ]);
         return redirect()->route('location');
+    }
+
+    public function location_view($id){
+        $locations=Location::find($id);
+        return view('backend.pages.location.view',compact('locations'));
     }
 
 }

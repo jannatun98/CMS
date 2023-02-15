@@ -4,6 +4,7 @@
 <div style = "padding:15px">
 <h2 style="text-align:center">Location</h2>
 <form  action="{{route('location.store')}}" method="post">
+  
  @csrf
   <div class="form-group">
     <label for="name">Name</label>

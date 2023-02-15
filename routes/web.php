@@ -35,6 +35,11 @@ Route::get('/Dashboard',[DashboardController::class,'dashboard'])->name('dashbor
 Route::get('/Crisis',[CrisisController::class,'crisis'])->name('crisis');
 Route::get('/Crisis/create',[CrisisController::class,'crisis_create'])->name('crisis.create');
 Route::post('/Crisis/store',[CrisisController::class,'crisis_store'])->name('crisis.store');
+Route::get('/Crisis/delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
+Route::get('/Crisis/edit/{id}',[CrisisController::class,'crisis_edit'])->name('crisis.edit');
+Route::put('/Crisis/update/{id}',[CrisisController::class,'crisis_update'])->name('crisis.update');
+Route::get('/Crisis/view/{id}',[CrisisController::class,'crisis_view'])->name('crisis.view');
+
 
 
 Route::get('/Crisistypes',[CrisistypesController::class,'crisistypes'])->name('crisis.types');
@@ -50,8 +55,8 @@ Route::get('/Location',[LocationController::class,'location'])->name('location')
 Route::get('/Location/create',[LocationController::class,'location_create'])->name('location.create');
 Route::post('/Location/store',[LocationController::class,'location_store'])->name('location.store');
 Route::get('/Location/delete/{id}',[LocationController::class,'location_delete'])->name('location.delete');
-Route::post('/Location/update/{id}',[LocationController::class,'location_update'])->name('location.update');
 Route::get('/Location/edit/{id}',[LocationController::class,'location_edit'])->name('location.edit');
+Route::put('/Location/update/{id}',[LocationController::class,'location_update'])->name('location.update');
 Route::get('/Location/view/{id}',[LocationController::class,'location_view'])->name('location.view');
 
 Route::get('/Volunteer',[VolunteerController::class,'volunteer'])->name('volunteer');
