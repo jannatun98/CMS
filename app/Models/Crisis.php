@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Crisis extends Model
 {
     protected $guarded=[];
+    protected $table='crisis';
 }

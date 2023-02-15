@@ -2,10 +2,11 @@
 @section('content')
 
 <div style="padding:15px">
-<form action="{{url('/crisis/crisisform')}}">
+<h2 style="text-align:center">Crisis</h2>
+<form action="{{route('crisis.create')}}">
 
     @csrf
-  <div class="form-group">
+  <div class="form-group" method="POST">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" placeholder="Enter name">
     <label for="location">Location</label>
