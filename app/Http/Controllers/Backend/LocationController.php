@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
     public function location(){
-       $locations=Location::all();
+       $locations=Location::paginate(5);
         return view('backend.pages.location.location',compact('locations'));
 
     }
@@ -19,10 +19,18 @@ class LocationController extends Controller
     }
 
     public function location_store(Request $request){
+
+        $request->validate([
+            "location_name"=>'required',
+            "location_address"=>'required'
+        ]);
+
+
         Location::create([
             "name"=>$request->location_name,
             "address"=>$request->location_address,
         ]);
+       
         return redirect()->route('location');
     }
 

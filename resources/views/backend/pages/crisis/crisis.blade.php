@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-    
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Location</th>
       <th scope="col">Crisis Type</th>
@@ -21,7 +21,9 @@
   @foreach($crisis as $cry)
     <tr>
       <th scope="row">{{$cry->id}}</th>
-      
+      <td>
+        <img width="70px" src="{{url('/uploads/'.$cry->image)}}" alt="">
+      </td>
       <td>{{$cry->name}}</td>
       <td>{{$cry->location}}</td>
       <td>{{$cry->crisis_type}}</td>
@@ -38,5 +40,8 @@
   </tbody>
   
 </table>
+
+{{$crisis->links()}}
+
 
 @endsection

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('crisis', function (Blueprint $table) {
             $table->id();
-           
+            $table->string('image');
             $table->string("name",50);
             $table->string("location",50);
             $table->string("crisis_type");

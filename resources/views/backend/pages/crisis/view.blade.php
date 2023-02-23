@@ -9,6 +9,8 @@
   <div class="form-group" >
     <label for="name">Name</label>
     <input type="text" class="form-control" name="name" placeholder="Enter name">
+    <label for="image">Upload Image</label>
+    <input id="image" type="file" class="form-control" name="image">
     <label for="location">Location</label>
     <input type="text" class="form-control" name="location" placeholder="Enter location">
     <label for="crisis type">Crisis Type</label>
