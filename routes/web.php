@@ -15,7 +15,8 @@ use App\Http\Controllers\Backend\VolunteerTocrisisController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //Frontend 
-use App\Http\Controllers\Frontend\HomeController as FrontendHome;
+use App\Http\Controllers\Frontend\FronthomeController;
+use App\Models\Crisistypes;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,9 @@ use App\Http\Controllers\Frontend\HomeController as FrontendHome;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Backend Routes
+
+
+//Backend Routes//
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/Dashboard',[DashboardController::class,'dashboard'])->name('dashbord');
 
@@ -41,9 +44,14 @@ Route::put('/Crisis/update/{id}',[CrisisController::class,'crisis_update'])->nam
 Route::get('/Crisis/view/{id}',[CrisisController::class,'crisis_view'])->name('crisis.view');
 
 
-
+//Crisistypes
 Route::get('/Crisistypes',[CrisistypesController::class,'crisistypes'])->name('crisis.types');
-
+Route::get('/Crisistypes/create',[CrisistypesController::class,'crisistypes_create'])->name('crisistypes.create');
+Route::post('/Crisistypes/store',[CrisistypesController::class,'crisistypes_store'])->name('crisistypes.store');
+Route::get('/Crisistypes/delete/{id}',[CrisistypesController::class,'crisistypes_delete'])->name('crisistypes.delete');
+Route::get('/Crisistypes/edit/{id}',[CrisistypesController::class,'crisistypes_edit'])->name('crisistypes.edit');
+Route::put('/Crisistypes/update/{id}',[CrisistypesController::class,'crisistypes_update'])->name('crisistypes.update');
+Route::get('/Crisistypes/view/{id}',[CrisistypesController::class,'crisistypes_view'])->name('crisistypes.view');
 
 Route::get('/Donation',[DonationController::class,'donation'])->name('donation');
 Route::get('/Donor',[DonorController::class,'donor'])->name('donor');
@@ -64,4 +72,6 @@ Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_t
 
 
 //Frontend Routes
-Route::get('/front-end',[FrontendHome::class,'fhome'])->name('f.home');
+Route::get('/front-end',[FronthomeController::class,'fhome'])->name('f.home');
+
+Route::get('/Login',[]);

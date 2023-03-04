@@ -28,18 +28,28 @@ class CrisisController extends Controller
 
         $request->validate([
             "name"=>'required',
+            "description"=>'required',
             "location"=>'required',
-            "crisis_type"=>'required',
-            "date"=>'required',
+            "amount_need"=>'required|min:1',
+            "amount_raised"=>'required',
+            "crisistype_id"=>'required',
+            "from_date"=>'required',
+            "to_date"=>'required',
+            "volunteer_id"=>'required',
             "image"=>'required'
         ]);
 
 
         Crisis::create([
             "name"=>$request->name,
+            "description"=>$request->description,
             "location"=>$request->location,
-            "crisis_type"=>$request->crisis_type,
-            "date"=>$request->date,
+            "amount_need"=>$request->amount_need,
+            "amount_raised"=>$request->amount_raised,
+            "crisistype_id"=>$request->crisistype_id,
+            "from_date"=>$request->from_date,
+            "to_date"=>$request->to_date,
+            "volunteer_id"=>$request->volunteer_id,
             "image"=>$fileName,
 
         ]);
@@ -70,9 +80,15 @@ class CrisisController extends Controller
 
         $crisis->update([
             "name"=>$request->name,
+            "description"=>$request->description,
             "location"=>$request->location,
-            "crisis_type"=>$request->crisis_type,
-            "date"=>$request->date,
+            "amount_need"=>$request->amount_need,
+            "amount_raised"=>$request->amount_raised,
+            "crisistype_id"=>$request->crisistype_id,
+            "from_date"=>$request->from_date,
+            "to_date"=>$request->to_date,
+            "volunteer_id"=>$request->volunteer_id,
+            "image"=>$fileName,
         ]);
         return redirect()->route('crisis');
 

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class FronthomeController extends Controller
 {
     public function fhome(){
-        return view ('frontend.master');
+        return view ('frontend.fixed.home');
     }
 }

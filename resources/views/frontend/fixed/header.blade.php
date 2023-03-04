@@ -4,7 +4,7 @@
 				<div class="col-md-6 d-flex align-items-center">
 					<p class="mb-0 phone pl-md-2">
 						<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>01974896984</a> 
-						<a href="#"><span class="fa fa-paper-plane mr-1"></span>mitu@email.com</a>
+						<a href="#"><span class="fa fa-paper-plane mr-1"></span>mitu@gmail.com</a>
 					</p>
 				</div>
 				<div class="col-md-6 d-flex justify-content-md-end">
@@ -40,6 +40,9 @@
 					<li class="nav-item"><a href="" class="nav-link">Contact</a></li>
 					<li class="nav-item cta"><a href="" class="nav-link">Donate</a></li>
 				</ul>
+				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#signup">SIGN UP</button>
+				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#login">Log In</button>
+				
 			</div>
 		</div>
 	</nav>
