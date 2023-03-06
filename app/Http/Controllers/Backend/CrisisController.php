@@ -14,7 +14,8 @@ class CrisisController extends Controller
     }
 
     public function crisis_create(){
-        return view('backend.pages.crisis.create');
+        $crisis=Crisis::all();
+        return view('backend.pages.crisis.create', compact('crisis'));
     }
 
     public function crisis_store(Request $request){

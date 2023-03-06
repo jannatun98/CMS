@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 //Backend
 use App\Http\Controllers\Backend\DashboardController;
@@ -29,8 +31,16 @@ use App\Models\Crisistypes;
 |
 */
 
+//Backend & Frontend Auth
+Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::post('/login',[AuthController::class,'loginStore'])->name('login.store');
 
+//Closer function
 //Backend Routes//
+Route::group(["middleware"=>"auth"],function(){
+
+Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
+
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/Dashboard',[DashboardController::class,'dashboard'])->name('dashbord');
 
@@ -69,9 +79,10 @@ Route::get('/Location/view/{id}',[LocationController::class,'location_view'])->n
 
 Route::get('/Volunteer',[VolunteerController::class,'volunteer'])->name('volunteer');
 Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis'])->name('volunteer.to.crisis');
+});
 
 
 //Frontend Routes
 Route::get('/front-end',[FronthomeController::class,'fhome'])->name('f.home');
 
-Route::get('/Login',[]);
+

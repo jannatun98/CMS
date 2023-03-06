@@ -20,7 +20,11 @@
     <label for="amount_raised">Amount Raised</label>
     <input required id="amount_raised" type="number" class="form-control" name="amount_raised">
     <label for="crisistype_id">Crisis Type ID</label>
-    <input required id="crisistype_id" type="number" class="form-control" name="crisistype_id" placeholder="Enter crisis type">
+    <select class="form-control" name="crisistype_id" id="crisistype_id">
+      @foreach($crisis as $cri)
+      <option value="{{$cri->crisistype_id}}"> {{$cri->name}} </option>
+     @endforeach
+    </select>
     <label for="from_date">From Date</label>
     <input required id="from_date" type="date" class="form-control" name="from_date" placeholder="Enter date">
     <label for="to_date">To Date</label>
