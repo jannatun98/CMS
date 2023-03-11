@@ -33,7 +33,7 @@
       <td>{{$cry->description}}</td>
       <td>{{$cry->location}}</td>
       <td>{{$cry->amount_need}}</td>
-      <td>{{$cry->amount_raised}}</td>
+      <td>{{$cry->amount_raised}}</td>      
       <td>{{$cry->crisistype_id}}</td>
       <td>{{$cry->from_date}}</td>
       <td>{{$cry->to_date}}</td>

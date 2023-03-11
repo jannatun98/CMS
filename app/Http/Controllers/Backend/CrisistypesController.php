@@ -22,8 +22,8 @@ class CrisistypesController extends Controller
     public function crisistypes_store(Request $request){
 
         $request->validate([
-            "name"=>'required',
-            "status"=>'required'
+            'name'=>'required',
+            'status'=>'required'
         ]);
 
         Crisistypes::create([

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('expense_category_id',100);
             $table->string('volunteer_id',100);
             $table->string('expense_title',100);
+            $table->string('details',100);
             $table->timestamps();
             
         });

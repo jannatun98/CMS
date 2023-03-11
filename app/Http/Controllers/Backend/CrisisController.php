@@ -28,16 +28,16 @@ class CrisisController extends Controller
         }
 
         $request->validate([
-            "name"=>'required',
-            "description"=>'required',
-            "location"=>'required',
-            "amount_need"=>'required|min:1',
-            "amount_raised"=>'required',
-            "crisistype_id"=>'required',
-            "from_date"=>'required',
-            "to_date"=>'required',
-            "volunteer_id"=>'required',
-            "image"=>'required'
+            'name'=>'required',
+            'description'=>'required',
+            'location'=>'required',
+            'amount_need'=>'required|min:1',
+            'amount_raised'=>'required',
+            'crisistype_id'=>'required',
+            'from_date'=>'required',
+            'to_date'=>'required',
+            'volunteer_id'=>'required',
+            'image'=>'required'
         ]);
 
 

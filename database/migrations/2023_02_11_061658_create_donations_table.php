@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('crisis_id',100);
             $table->string('donor_id',100);
-            $table->string('donated_amount',100);
+            $table->string('donate_amount',100);
+            $table->string('payment_method',100);
+            $table->string('transaction_id',100);
             $table->timestamps();
         });
     }

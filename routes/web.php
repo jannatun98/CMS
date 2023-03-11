@@ -19,6 +19,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //Frontend 
 use App\Http\Controllers\Frontend\FronthomeController;
 use App\Models\Crisistypes;
+use App\Models\ExpenseCategory;
+use App\Models\Volunteer;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +65,46 @@ Route::get('/Crisistypes/edit/{id}',[CrisistypesController::class,'crisistypes_e
 Route::put('/Crisistypes/update/{id}',[CrisistypesController::class,'crisistypes_update'])->name('crisistypes.update');
 Route::get('/Crisistypes/view/{id}',[CrisistypesController::class,'crisistypes_view'])->name('crisistypes.view');
 
+
+//Donation
 Route::get('/Donation',[DonationController::class,'donation'])->name('donation');
+Route::get('/Donation/create',[DonationController::class,'donation_create'])->name('donation.create');
+Route::post('/Donation/store',[DonationController::class,'donation_store'])->name('donation.store');
+Route::get('/Donation/delete/{id}',[DonationController::class,'donation_delete'])->name('donation.delete');
+Route::get('/Donation/edit/{id}',[DonationController::class,'donation_edit'])->name('donation.edit');
+Route::put('/Donation/update/{id}',[DonationController::class,'donation_update'])->name('donation.update');
+Route::get('/Donation/view/{id}',[DonationController::class,'donation_view'])->name('donation.view');
+
+
+//Donor
 Route::get('/Donor',[DonorController::class,'donor'])->name('donor');
+Route::get('/Donor/create',[DonorController::class,'donor_create'])->name('donor.create');
+Route::post('/Donor/store',[DonorController::class,'donor_store'])->name('donor.store');
+Route::get('/Donor/delete/{id}',[DonorController::class,'donor_delete'])->name('donor.delete');
+Route::get('/Donor/edit/{id}',[DonorController::class,'donor_edit'])->name('donor.edit');
+Route::put('/Donor/update/{id}',[DonorController::class,'donor_update'])->name('donor.update');
+Route::get('/Donor/view/{id}',[DonorController::class,'donor_view'])->name('donor.view');
+
+
+//Expense
 Route::get('/Expense',[ExpenseController::class,'expense'])->name('expense');
+Route::get('/Expense/create',[ExpenseController::class,'expense_create'])->name('expense.create');
+Route::post('/Expense/store',[ExpenseController::class,'expense_store'])->name('expense.store');
+Route::get('/Expense/delete/{id}',[ExpenseController::class,'expense_delete'])->name('expense.delete');
+Route::get('/Expense/edit/{id}',[ExpenseController::class,'expense_edit'])->name('expense.edit');
+Route::put('/Expense/update/{id}',[ExpenseController::class,'expense_update'])->name('expense.update');
+Route::get('/Expense/view/{id}',[ExpenseController::class,'expense_view'])->name('expense.view');
+
+
+//Expense Category
 Route::get('/Expense/Category',[ExpenseCategoryController::class,'expense_category'])->name('expense.category');
+Route::get('/Expense/Category/create',[ExpenseCategoryController::class,'expensecategory_create'])->name('expensecategory.create');
+Route::post('/Expense/Category/store',[ExpenseCategoryController::class,'expensecategory_store'])->name('expensecategory.store');
+Route::get('/Expense/Category/{id}',[ExpenseCategoryController::class,'expensecategory_delete'])->name('expensecategory.delete');
+Route::get('/Expense/Category/edit/{id}',[ExpenseCategoryController::class,'expensecategory_edit'])->name('expensecategory.edit');
+Route::put('/Expense/Category/update/{id}',[ExpenseCategoryController::class,'expensecategory_update'])->name('expensecategory.update');
+Route::get('/Expense/Category/view/{id}',[ExpenseCategoryController::class,'expensecategory_view'])->name('expensecategory.view');
+
 
 //Location
 Route::get('/Location',[LocationController::class,'location'])->name('location');
@@ -77,8 +115,25 @@ Route::get('/Location/edit/{id}',[LocationController::class,'location_edit'])->n
 Route::put('/Location/update/{id}',[LocationController::class,'location_update'])->name('location.update');
 Route::get('/Location/view/{id}',[LocationController::class,'location_view'])->name('location.view');
 
+
+//Volunteer
 Route::get('/Volunteer',[VolunteerController::class,'volunteer'])->name('volunteer');
-Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis'])->name('volunteer.to.crisis');
+Route::get('/Volunteer/create',[VolunteerController::class,'volunteer_create'])->name('volunteer.create');
+Route::post('/Volunteer/store',[VolunteerController::class,'volunteer_store'])->name('volunteer.store');
+Route::get('/Volunteer/delete/{id}',[VolunteerController::class,'volunteer_delete'])->name('volunteer.delete');
+Route::get('/Volunteer/edit/{id}',[VolunteerController::class,'volunteer_edit'])->name('volunteer.edit');
+Route::put('/Volunteer/update/{id}',[VolunteerController::class,'volunteer_update'])->name('volunteer.update');
+Route::get('/Volunteer/view/{id}',[VolunteerController::class,'volunteer_view'])->name('volunteer.view');
+
+
+//Volunteer To Crisis
+Route::get('/VolunteerToCrisis',[VolunteerTocrisisController::class,'volunteer_to_crisis'])->name('volunteertocrisis');
+Route::get('/VolunteerToCrisis/create',[VolunteerTocrisisController::class,'volunteertocrisis_create'])->name('volunteertocrisis.create');
+Route::post('/VolunteerToCrisis/store',[VolunteerTocrisisController::class,'volunteertocrisis_store'])->name('volunteertocrisis.store');
+Route::get('/VolunteerToCrisis/delete/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_delete'])->name('volunteertocrisis.delete');
+Route::get('/VolunteerToCrisis/edit/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_edit'])->name('volunteertocrisis.edit');
+Route::put('/VolunteerToCrisis/update/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_update'])->name('volunteertocrisis.update');
+Route::get('/VolunteerToCrisis/view/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_view'])->name('volunteertocrisis.view');
 });
 
 
