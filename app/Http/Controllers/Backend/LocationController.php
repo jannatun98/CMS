@@ -30,12 +30,15 @@ class LocationController extends Controller
             "name"=>$request->location_name,
             "address"=>$request->location_address,
         ]);
+
+        toastr()->success('Location added successfully.');
        
         return redirect()->route('location');
     }
 
     public function location_delete($id){
         Location::find($id)->delete();
+        toastr()->success('Location deleted successfully.');
         return redirect()->back();
     }
 
@@ -52,6 +55,7 @@ class LocationController extends Controller
             'name'=>$request->location_name,
             'address'=>$request->location_address,
         ]);
+        toastr()->success('Location updated successfully.');
         return redirect()->route('location');
     }
 

@@ -20,9 +20,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($donation as $donate)
+  @foreach($donation as $key=>$donate)
     <tr>
-      <th scope="row">{{$donate->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$donate->crisis_id}}</td>
       <td>{{$donate->donor_id}}</td>
       <td>{{$donate->donate_amount}}</td>

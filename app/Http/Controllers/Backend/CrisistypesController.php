@@ -31,12 +31,14 @@ class CrisistypesController extends Controller
             "status"=>$request->status,
 
         ]);
+        toastr()->success('Crisis type added successfully.');
         return redirect()->route('crisis.types');
 
     }
 
     public function crisistypes_delete($id){
         Crisistypes::find($id)->delete();
+        toastr()->success('Crisis type deleted successfully.');
         return redirect()->route('crisis.types');
     }
 
@@ -52,6 +54,7 @@ class CrisistypesController extends Controller
             "name"=>$request->name,
             "status"=>$request->status,
         ]);
+        toastr()->success('Crisis type updated successfully.');
         return redirect()->route('crisis.types');
     }
 

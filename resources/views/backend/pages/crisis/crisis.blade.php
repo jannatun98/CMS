@@ -23,9 +23,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($crisis as $cry)
+  @foreach($crisis as $key=>$cry)
     <tr>
-      <th scope="row">{{$cry->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>
         <img width="70px" src="{{url('/uploads/'.$cry->image)}}" alt="Image">
       </td>

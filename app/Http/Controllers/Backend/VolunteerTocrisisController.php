@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\VolunteerToCrisis;
+use App\Models\Crisis;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class VolunteerTocrisisController extends Controller
@@ -14,7 +16,9 @@ class VolunteerTocrisisController extends Controller
     }
 
     public function volunteertocrisis_create(){
-        return view('backend.pages.volunteertocrisis.create');
+        $crys=Crisis::all();
+        $volunteer=Volunteer::all();
+        return view('backend.pages.volunteertocrisis.create',compact('crys','volunteer'));
     }
 
     public function volunteertocrisis_store(Request $request){
@@ -27,26 +31,33 @@ class VolunteerTocrisisController extends Controller
             "crisis_id"=>$request->crisis_id,
             "volunteer_id"=>$request->volunteer_id
         ]);
+        toastr()->success('A volunteer assigned to crisis successfully.');
         return redirect()->route('volunteertocrisis');
     }
 
     public function volunteertocrisis_delete($id){
         VolunteerToCrisis::find($id)->delete();
+        toastr()->success('A volunteer unassigned from crisis successfully.');
         return redirect()->route('volunteertocrisis');
 
     }
 
     public function volunteertocrisis_edit($id){
         $volunteertocri=VolunteerToCrisis::find($id);
-        return view('backend.pages.volunteertocrisis.edit',compact('volunteertocri'));
+        $crys=Crisis::all();
+        $volunteer=Volunteer::all();
+
+        // dd($volunteertocri);
+        return view('backend.pages.volunteertocrisis.edit',compact('volunteertocri','crys','volunteer'));
     }
 
     public function volunteertocrisis_update(Request $request, $id){
         $volunteertocris=VolunteerToCrisis::find($id);
         $volunteertocris->update([
-            "crisis_id"=>$request->crisis_id,
-            "volunteer_id"=>$request->volunteer_id
+            'crisis_id'=>$request->crisis_id,
+            'volunteer_id'=>$request->volunteer_id
         ]);
+        toastr()->success('Updated successfully.');
         return redirect()->route('volunteertocrisis');
     }
 

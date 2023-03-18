@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Expense;
+use App\Models\ExpenseCategory;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -14,7 +16,9 @@ class ExpenseController extends Controller
     }
 
     public function expense_create(){
-        return view('backend.pages.expense.create');
+        $expen=ExpenseCategory::all();
+        $volun=Volunteer::all();
+        return view('backend.pages.expense.create',compact('expen','volun'));
     }
     public function expense_store(Request $request){
         $request->validate([
@@ -29,19 +33,23 @@ class ExpenseController extends Controller
             "volunteer_id"=>$request->volunteer_id,
             "expense_title"=>$request->expense_title,
             "details"=>$request->details,
-
+            
         ]);
+        toastr()->success('Expense added successfully.');
         return redirect()->route('expense');
     }
 
     public function expense_delete($id){
         Expense::find($id)->delete();
+        toastr()->success('Expense deleted successfully.');
         return redirect()->route('expense');
     }
 
     public function expense_edit($id){
         $expense=Expense::find($id);
-        return view('backend.pages.expense.edit',compact('expense'));
+        $expen=ExpenseCategory::all();
+        $volun=Volunteer::all();
+        return view('backend.pages.expense.edit',compact('expense','expen','volun'));
     }
 
     public function expense_update(Request $request, $id){
@@ -53,6 +61,7 @@ class ExpenseController extends Controller
             "details"=>$request->details,
 
         ]);
+        toastr()->success('Expense updated successfully.');
         return redirect()->route('expense');
     }
 

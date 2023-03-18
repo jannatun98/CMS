@@ -30,11 +30,13 @@ class ExpenseCategoryController extends Controller
             "status"=>$request->status,
             "description"=>$request->description,
         ]);
+        toastr()->success('Expense category added successfully.');
         return redirect()->route('expense.category');
     }
 
     public function expensecategory_delete($id){
         ExpenseCategory::find($id)->delete();
+        toastr()->success('Expense category deleted successfully.');
         return redirect()->route('expense.category');
     }
 
@@ -50,6 +52,7 @@ class ExpenseCategoryController extends Controller
             "status"=>$request->status,
             "description"=>$request->description,
         ]);
+        toastr()->success('Expense category deleted successfully.');
         return redirect()->route('expense.category');
     }
 

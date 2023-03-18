@@ -14,13 +14,13 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($volunteertocri as $volunteertocris)
+    @foreach($volunteertocri as $key=>$volunteertocris)
     <tr>
-    <th scope="row">{{$volunteertocris->id}}</th>
+    <th scope="row">{{$key+1}}</th>
     <td scope="row">{{$volunteertocris->crisis_id}}</td>
     <td scope="row">{{$volunteertocris->volunteer_id}}</td>
     <td>
-      <a class="btn btn-success" href="">View</a>
+      <a class="btn btn-success" href="{{route('volunteertocrisis.view',$volunteertocris->id)}}">View</a>
       <a class="btn btn-primary" href="{{route('volunteertocrisis.edit',$volunteertocris->id)}}">Edit</a>
       <a class="btn btn-danger" href="{{route('volunteertocrisis.delete',$volunteertocris->id)}}">Delete</a>
     </td>

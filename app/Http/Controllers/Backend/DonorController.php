@@ -43,12 +43,14 @@ class DonorController extends Controller
             "phone"=>$request->phone,
             "image"=>$fileName,
         ]);
+        toastr()->success('Donor added successfully.');
         return redirect()->route('donor');
     }
 
     public function donor_delete($id){
         Donor::find($id)->delete();
         return redirect()->route('donor');
+        toastr()->success('Donor deleted successfully.');
     }
 
     public function donor_edit($id){
@@ -74,6 +76,7 @@ class DonorController extends Controller
             "phone"=>$req->phone,
             "image"=>$fileName,
         ]);
+        toastr()->success('Donor updated successfully.');
         return redirect()->route('donor');
     }
 

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('volunteertocrisis', function (Blueprint $table) {
             $table->id();
-            $table->string('crisis_id',100);
-            $table->string('volunteer_id',100);
+            $table->foreignId('crisis_id');
+            $table->foreignId('volunteer_id');
             $table->timestamps();
         });
     }

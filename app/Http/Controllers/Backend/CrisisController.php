@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use toastr;
 use App\Models\Crisis;
+use App\Models\Volunteer;
+use App\Models\Crisistypes;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class CrisisController extends Controller
 {
@@ -14,8 +18,11 @@ class CrisisController extends Controller
     }
 
     public function crisis_create(){
-        $crisis=Crisis::all();
-        return view('backend.pages.crisis.create', compact('crisis'));
+        $crisis=Crisistypes::all();
+        $volunteers=Volunteer::all();
+        return view('backend.pages.crisis.create', compact('volunteers','crisis'));
+
+        
     }
 
     public function crisis_store(Request $request){
@@ -54,19 +61,24 @@ class CrisisController extends Controller
             "image"=>$fileName,
 
         ]);
+        toastr()->success('Crisis added successfully.');
         return redirect()->route('crisis');
 
     }
 
     public function crisis_delete($id){
         Crisis::find($id)->delete();
+        toastr()->success('Crisis deleted successfully.');
         return redirect()->route('crisis');
 
     }
 
     public function crisis_edit($id){
         $cri=Crisis::find($id);
-        return view('backend.pages.crisis.edit',compact('cri'));
+        $crisis=Crisistypes::all();
+        $volunteers=Volunteer::all();
+        return view('backend.pages.crisis.edit', compact('volunteers','crisis','cri'));
+       
         
     }
 
@@ -91,6 +103,7 @@ class CrisisController extends Controller
             "volunteer_id"=>$request->volunteer_id,
             "image"=>$fileName,
         ]);
+        toastr()->success('Crisis updated successfully.');
         return redirect()->route('crisis');
 
     }

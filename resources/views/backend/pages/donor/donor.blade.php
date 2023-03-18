@@ -18,9 +18,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($donors as $donor)
+    @foreach($donors as $key=>$donor)
     <tr>
-    <th scope="row">{{$donor->id}}</th>
+    <th scope="row">{{$key+1}}</th>
     <td>
         <img width="70px" src="{{url('/uploads/'.$donor->image)}}" alt="Image" >
     </td>

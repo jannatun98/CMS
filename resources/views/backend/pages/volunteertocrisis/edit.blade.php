@@ -3,14 +3,34 @@
 
 <div style="padding:15px">
 <h2 style="text-align:center">Volunteers To Crisis</h2>
-<form action="{{route('volunteertocrisis.update',$volunteertocris->id)}}" method="post">
+<form action="{{route('volunteertocrisis.update',$volunteertocri->id)}}" method="post">
   @method('put')
+
+  @if($errors->any())
+        @foreach($errors->all() as $error)
+          <p class="alert alert-danger">{{$error}}</p>
+        @endforeach
+    @endif
+
+    @if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+    @endif
+
     @csrf
   <div class="form-group" >
-    <label for="crisis_id">Crisis ID</label>
-    <input required id="crisis_id" value="{{$volunteertocris->crisis_id}}" type="text" class="form-control" name="crisis_id">
-    <label for="volunteer_id">Volunteer ID</label>
-    <input required id="volunteer_id" value="{{$volunteertocris->volunteer_id}}" type="text" class="form-control" name="volunteer_id">
+  <label for="crisis_id">Crisis Name</label>
+    <select class="form-control" name="crisis_id" id="crisis_id" >
+      @foreach($crys as $cry)
+      <option value="{{$cry->id}}">{{$cry->name}}</option>
+      @endforeach
+    </select>
+
+    <label for="volunteer_id">Volunteer Name</label>
+    <select class="form-control" name="volunteer_id" id="volunteer_id" >
+      @foreach($volunteer as $volun)
+      <option value="{{$volun->id}}">{{$volun->name}}</option>
+      @endforeach
+    </select>
     
   <button type="submit"  class="btn btn-primary">Submit</button>
 </form>

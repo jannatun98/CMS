@@ -14,6 +14,7 @@ class VolunteerController extends Controller
     }
 
     public function volunteer_create(){
+        
         return view('backend.pages.volunteer.create');
     }
 
@@ -32,11 +33,13 @@ class VolunteerController extends Controller
             "phone"=>$request->phone,
             "address"=>$request->address
         ]);
+        toastr()->success('Volunteer added successfully.');
         return redirect()->route('volunteer');
     }
 
     public function volunteer_delete($id){
         Volunteer::find($id)->delete();
+        toastr()->success('Volunteer deleted successfully.');
         return redirect()->route('volunteer');
     }
 
@@ -53,6 +56,7 @@ class VolunteerController extends Controller
             "phone"=>$request->phone,
             "address"=>$request->address
         ]);
+        toastr()->success('Volunteer updated successfully.');
         return redirect()->route('volunteer');
     }
 

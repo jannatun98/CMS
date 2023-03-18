@@ -9,4 +9,12 @@ class Expense extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function ExpenseCategory(){
+        return $this->belongsTo(ExpenseCategory::class);
+    }
+
+    public function Volunteer(){
+        return $this->belongsTo(Volunteer::class);
+    }
 }

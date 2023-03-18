@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+
+use App\Models\Donor;
+use App\Models\Crisis;
 use App\Models\Donation;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DonationController extends Controller
 {
@@ -14,7 +17,9 @@ class DonationController extends Controller
     }
 
     public function donation_create(){
-        return view('backend.pages.donation.create');
+        $crisis=Crisis::all();
+        $donor=Donor::all();
+        return view('backend.pages.donation.create',compact('crisis','donor'));
     }
 
     public function donation_store(Request $request){
@@ -36,6 +41,7 @@ class DonationController extends Controller
             "payment_method"=>$request->payment_method,
             "transaction_id"=>$request->transaction_id,
         ]);
+        toastr()->success('Donation created successfully.');
         return redirect()->route('donation');
 
     }
@@ -43,23 +49,28 @@ class DonationController extends Controller
     public function donation_delete($id){
         Donation::find($id)->delete();
         return redirect()->route('donation');
+        toastr()->success('Donation deleted successfully.');
     }
 
     public function donation_edit($id){
         $donation=Donation::find($id);
-        return view('backend.pages.crisistypes.edit',compact('donation'));
+        $crisis=Crisis::all();
+        $donor=Donor::all();
+        return view('backend.pages.donation.edit',compact('donation','crisis','donor'));
     }
 
-    public function crisis_update(Request $request, $id){
+    public function donation_update(Request $request, $id){
 
         $donation=Donation::find($id);
+
         $donation->update([
             "crisis_id"=>$request->crisis_id,
             "donor_id"=>$request->donor_id,
             "donate_amount"=>$request->donate_amount,
-            "payment_method"=>$request->amount_need,
+            "payment_method"=>$request->payment_method,
             "transaction_id"=>$request->transaction_id,
         ]);
+        toastr()->success('Donation updated successfully.');
         return redirect()->route('donation');
 
     }

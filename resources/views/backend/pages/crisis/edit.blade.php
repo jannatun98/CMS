@@ -6,6 +6,17 @@
 <form action="{{route('crisis.update',$cri->id)}}" method="post">
     @method('put')
 
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+          <p class="alert alert-danger">{{$error}}</p>
+        @endforeach
+    @endif
+
+    @if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+    @endif
+
+
     @csrf
     <div class="form-group" >
     <label for="name">Name</label>
@@ -20,14 +31,26 @@
     <input required id="amount_need" value="{{$cri->amount_need}}" type="number" class="form-control" name="amount_need">
     <label for="amount_raised">Amount Raised</label>
     <input required id="amount_raised" value="{{$cri->amount_raised}}" type="number" class="form-control" name="amount_raised">
-    <label for="crisistype_id">Crisis Type ID</label>
-    <input required id="crisistype_id" value="{{$cri->crisistype_id}}" type="number" class="form-control" name="crisistype_id" placeholder="Enter crisis type">
+    
+    <label for="crisistype_id">Crisis Type</label>
+    <select class="form-control" name="crisistype_id" id="crisistype_id">
+      @foreach($crisis as $cri)
+      <option value="{{$cri->id}}"> {{$cri->name}} </option>
+     @endforeach
+    </select>
+
     <label for="from_date">From Date</label>
     <input required id="from_date" value="{{$cri->from_date}}" type="date" class="form-control" name="from_date" placeholder="Enter date">
     <label for="to_date">To Date</label>
     <input required id="to_date" value="{{$cri->to_date}}" type="date" class="form-control" name="to_date" placeholder="Enter date">
-    <label for="volunteer_id">Volunteer ID</label>
-    <input required id="volunteer_id" value="{{$cri->volunteer_id}}" type="number" class="form-control" name="volunteer_id">
+    
+    <label for="volunteer_id">Volunteer Name</label>
+    <select class="form-control" name="volunteer_id" id="volunteer_id">
+      @foreach($volunteers as $vol)
+      <option value="{{$vol->id}}">{{$vol->name}}</option>
+      @endforeach
+    </select>
+
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

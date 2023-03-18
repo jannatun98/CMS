@@ -8,17 +8,18 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Status</th>
-      <th scope="col">Description</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
       <th scope="col">Action</th>
 
 
     </tr>
   </thead>
   <tbody>
-    @foreach($volunteers as $volunteer)
+    @foreach($volunteers as $key=>$volunteer)
     <tr>
-    <th scope="row">{{$volunteer->id}}</th>
+    <th scope="row">{{$key+1}}</th>
     <td scope="row">{{$volunteer->name}}</td>
     <td scope="row">{{$volunteer->email}}</td>
     <td scope="row">{{$volunteer->phone}}</td>

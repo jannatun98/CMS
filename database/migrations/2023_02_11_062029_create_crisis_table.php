@@ -16,15 +16,15 @@ return new class extends Migration
         Schema::create('crisis', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string("name",50);
-            $table->text("description")->nullable();
-            $table->string("location",50);
-            $table->string("amount_need",50);
-            $table->string("amount_raised",50);
-            $table->string("crisistype_id",50);
-            $table->string("from_date");
-            $table->string("to_date");
-            $table->string("volunteer_id");
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('location');
+            $table->integer('amount_need');
+            $table->integer('amount_raised');
+            $table->foreignId('crisistype_id');
+            $table->string('from_date');
+            $table->string('to_date');
+            $table->foreignId('volunteer_id');
             $table->timestamps();
         });
     }
