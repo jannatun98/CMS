@@ -7,40 +7,44 @@
                                 Dashboard
                             </a>
                             <a class="nav-link" href="{{url('/Crisis')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-house-tsunami"></i></div>
                                 Crisis
                             </a>
                             <a class="nav-link" href="{{url('/Crisistypes')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-house-tsunami"></i></div>
                                 Crisis Types
                             </a>
                             <a class="nav-link" href="{{url('/Location')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-location-dot"></i></div>
                                 Location
                             </a>
                             <a class="nav-link" href="{{url('/Donor')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
                                 Donor
                             </a>
                             <a class="nav-link" href="{{url('/Donation')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                                 Donation
                             </a>
                             <a class="nav-link" href="{{url('/Volunteer')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-handshake-angle"></i></div>
                                 Volunteer
                             </a>
                             <a class="nav-link" href="{{url('/VolunteerToCrisis')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                                 Volunteer to Crisis
                             </a>
                             <a class="nav-link" href="{{url('/Expense')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-sack-dollar"></i></div>
                                 Expense
                             </a>
                             <a class="nav-link" href="{{url('/Expense/Category')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-sack-dollar"></i></div>
                                 Expense Category
+                            </a>
+                            <a class="nav-link" href="{{url('/Payment')}}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-money-check"></i></div>
+                                Payment
                             </a>
                             <a class="nav-link" href="{{url('/Report')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

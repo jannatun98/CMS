@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\VolunteerController;
 use App\Http\Controllers\Backend\VolunteerTocrisisController;
+use App\Http\Controllers\Backend\PaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //Frontend 
@@ -134,10 +135,22 @@ Route::get('/VolunteerToCrisis/delete/{id}',[VolunteerTocrisisController::class,
 Route::get('/VolunteerToCrisis/edit/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_edit'])->name('volunteertocrisis.edit');
 Route::put('/VolunteerToCrisis/update/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_update'])->name('volunteertocrisis.update');
 Route::get('/VolunteerToCrisis/view/{id}',[VolunteerTocrisisController::class,'volunteertocrisis_view'])->name('volunteertocrisis.view');
+
+//Payment
+Route::get('/Payment',[PaymentController::class,'payment'])->name('payment');
+Route::get('/Payment/create',[PaymentController::class,'payment_create'])->name('payment.create');
+Route::post('/Payment/store',[PaymentController::class,'payment_store'])->name('payment.store');
+Route::get('/Payment/delete/{id}',[PaymentController::class,'payment_delete'])->name('payment.delete');
+Route::get('/Payment/edit/{id}',[PaymentController::class,'payment_edit'])->name('payment.edit');
+Route::put('/Payment/update/{id}',[PaymentController::class,'payment_update'])->name('payment.update');
+Route::get('/Payment/view/{id}',[PaymentController::class,'payment_view'])->name('payment.view');
+
 });
 
 
 //Frontend Routes
+Route::group(["middleware"=>"localization"],function(){
 Route::get('/front-end',[FronthomeController::class,'fhome'])->name('f.home');
-
+Route::get('/switch-lang/{lang}',[FronthomeController::class,'changelanguage'])->name('switch.language');
+});
 

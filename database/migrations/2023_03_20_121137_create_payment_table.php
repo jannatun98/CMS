@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donations', function (Blueprint $table) {
+        Schema::create('payment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('crisis_id');
-            $table->foreignId('donor_id');
-            $table->string('donate_amount');
-            $table->foreignId('payment_method');
-            $table->string('transaction_id');
+            $table->string('payment_method');
+            $table->string('payment_status');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donations');
+        Schema::dropIfExists('payment');
     }
 };

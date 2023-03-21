@@ -7,7 +7,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <h4 class="modal-title w-100 font-weight-bold text-center">SIGN UP</h4>
+      <h4 class="modal-title w-100 font-weight-bold text-center">{{__('SIGN UP')}}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -16,15 +16,15 @@
 
 	  <!-- form -->
       <label for="name"></label>
-    <input type="text" class="form-control" id="name" placeholder="Your Name">
+    <input type="text" class="form-control" id="name" placeholder="{{__('Your Name')}}">
       <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Your Email">
+    <input type="email" class="form-control" id="email" placeholder="{{__('Your Email')}}">
       <label for="password"></label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" id="password" placeholder="{{__('Password')}}">
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Submit')}}</button>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <h4 class="modal-title w-100 font-weight-bold text-center">LOG IN</h4>
+      <h4 class="modal-title w-100 font-weight-bold text-center">{{__('LOG IN')}}</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -46,13 +46,13 @@
 
 	  <!-- form -->
       <label for="email"></label>
-    <input type="email" class="form-control" id="email" placeholder="Your Email">
+    <input type="email" class="form-control" id="email" placeholder="{{__('Your Email')}}">
       <label for="password"></label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" id="password" placeholder="{{__('Password')}}">
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Submit')}}</button>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@
 					<div class="donation-wrap">
 						<div class="total-donate d-flex align-items-center">
 							<span class="fa flaticon-cleaning"></span>
-							<h4>Donation Campaign <br>are running</h4>
+							<h4>{{__('Donation Campaign')}} <br>{{__('are running')}}</h4>
 							<p class="d-flex align-items-center">
 								<span>$</span>
 								<span class="number" data-number="24781">0</span>

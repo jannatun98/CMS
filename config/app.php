@@ -84,6 +84,13 @@ return [
 
     'locale' => 'en',
 
+    'available_locales'=>[
+        'English' => 'en',
+        'Bangla' => 'bn',
+        'Korea' => 'ko',
+
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

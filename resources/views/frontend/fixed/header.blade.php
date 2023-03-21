@@ -16,6 +16,11 @@
 							<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>	
 						</p>
 					</div>
+					<select class="d-flex align-items-center justify-content-center" class="form-control" name="language" id="" onchange="location = this.value;" >
+							<option @if(session()->get('language')=='en') selected @endif value="{{route('switch.language','en')}}">EN</option>
+							<option @if(session()->get('language')=='bn') selected @endif value="{{route('switch.language','bn')}}">BN</option>
+							<option @if(session()->get('language')=='ko') selected @endif value="{{route('switch.language','ko')}}">KO</option>
+						</select>
 				</div>
 			</div>
 		</div>
@@ -29,19 +34,18 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Crisis</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Crisis Types</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Volunteer</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Volunteer To Crisis</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Expense</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Donation</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Contact</a></li>
-					<li class="nav-item cta"><a href="" class="nav-link">Donate</a></li>
+					<li class="nav-item active"><a href="" class="nav-link">{{__('Home')}}</a></li>
+					<li class="nav-item"><a href="" class="nav-link">{{__('About')}}</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">{{__('Crisis')}}</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">{{__('Crisis Types')}}</a></li>
+					<li class="nav-item"><a href="" class="nav-link">{{__('Volunteer')}}</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">{{__('Volunteer To Crisis')}}</a></li>
+					<li class="nav-item"><a href="" class="nav-link">{{__('Expense')}}</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">{{__('Donation')}}</a></li>
+					<li class="nav-item cta"><a href="" class="nav-link">{{__('Donate')}}</a></li>
 				</ul>
-				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#signup">SIGN UP</button>
-				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#login">Log In</button>
+				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#signup">{{__('SIGN UP')}}</button>
+				<button type="button" class="btn btn-light" data-toggle="modal" data-target="#login">{{__('LOG IN')}}</button>
 				
 			</div>
 		</div>
