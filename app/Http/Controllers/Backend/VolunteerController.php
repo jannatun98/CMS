@@ -20,12 +20,12 @@ class VolunteerController extends Controller
 
     public function volunteer_store(Request $request){
 
-       // $request->validate([
-            //'name'=>'required',
-            //'email'=>'required',
-            //'phone'=>'required|max:11',
-            //'address'=>'required'
-       // ]);
+       $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required|max:11',
+            'address'=>'required'
+       ]);
 
         Volunteer::create([
             "name"=>$request->name,

@@ -2,5 +2,19 @@
     "SIGN UP":"가입하기",
     "LOG IN":"로그인",
     "Home":"집",
-    "Donation Campaign are running":"기부 캠페인 달리고 있다"
+    "Donation Campaign":"기부 캠페인",
+    "are running":"달리고 있다",
+    "About":"에 대한",
+    "Crisis":"위기",
+    "Crisis Types":"위기 유형",
+    "Volunteer":"자원 봉사자",
+    "Volunteer To Crisis":"위기에 자원하다",
+    "Expense":"비용",
+    "Donation":"기부",
+    "Donate":"기부하다",
+    "Submit":"제출하다",
+    "Your Name":"당신의 이름",
+    "Your Email":"귀하의 이메일",
+    "Password":"비밀번호"
+
 }
