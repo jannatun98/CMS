@@ -17,14 +17,13 @@
     @endif
 
  @csrf
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="location_name" id="name" placeholder="{{$locations->name}}">
-  </div>
-
+ <div class="form-group">
+ <label for="name">Name</label>
+    <input required id="name" type="text" class="form-control" name="location_name" placeholder="{{$locations->name}}">
+ </div>
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" name="location_address" id="address" placeholder="{{$locations->address}}">
+    <input required id="address" type="text" class="form-control" name="location_address"  placeholder="{{$locations->address}}">
   </div>
   
 

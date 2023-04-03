@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
 use App\Models\Volunteer;
+use App\Models\Crisis;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -18,10 +19,12 @@ class ExpenseController extends Controller
     public function expense_create(){
         $expen=ExpenseCategory::all();
         $volun=Volunteer::all();
-        return view('backend.pages.expense.create',compact('expen','volun'));
+        $cris=Crisis::all();
+        return view('backend.pages.expense.create',compact('expen','volun', 'cris'));
     }
     public function expense_store(Request $request){
         $request->validate([
+            'crisis_id'=>'required',
             'expense_category_id'=>'required',
             'volunteer_id'=>'required',
             'expense_title'=>'required',
@@ -29,6 +32,7 @@ class ExpenseController extends Controller
         ]);
 
         Expense::create([
+            "crisis_id"=>$request->crisis_id,
             "expense_category_id"=>$request->expense_category_id,
             "volunteer_id"=>$request->volunteer_id,
             "expense_title"=>$request->expense_title,
@@ -49,12 +53,14 @@ class ExpenseController extends Controller
         $expense=Expense::find($id);
         $expen=ExpenseCategory::all();
         $volun=Volunteer::all();
-        return view('backend.pages.expense.edit',compact('expense','expen','volun'));
+        $cris=Crisis::all();
+        return view('backend.pages.expense.edit',compact('expense','expen','volun','cris'));
     }
 
     public function expense_update(Request $request, $id){
         $expense=Expense::find($id);
         $expense->update([
+            "crisis_id"=>$request->crisis_id,
             "expense_category_id"=>$request->expense_category_id,
             "volunteer_id"=>$request->volunteer_id,
             "expense_title"=>$request->expense_title,

@@ -17,4 +17,8 @@ class Expense extends Model
     public function Volunteer(){
         return $this->belongsTo(Volunteer::class);
     }
+
+    public function Crisis(){
+        return $this->belongsTo(Crisis::class);
+    }
 }

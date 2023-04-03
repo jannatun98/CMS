@@ -19,14 +19,21 @@
 
  @csrf
   <div class="form-group">
-    <label for="payment_method">Payment Method</label>
-    <input required id="payment_method" value="{{$pay->payment_method}}" type="text" class="form-control" name="payment_method">
+  <label for="payment_method">Payment Method</label>
+                <select name="payment_method" id="payment_method" class="form-control">
+                    <option value="">Credit Card</option>
+                    <option value="">Paypal</option>
+                </select>
   </div>
 
   <div class="form-group">
-    <label for="payment_status">Payment Status</label>
-    <input required id="payment_status" value="{{$pay->payment_status}}" type="text" class="form-control" name="payment_status">
+  <label for="payment_status">Payment Status</label>
+                <select name="payment_status" id="payment_status" class="form-control">
+                    <option value="">Pending</option>
+                    <option value="">Paid</option>
+                </select>
   </div>
+  
   
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>

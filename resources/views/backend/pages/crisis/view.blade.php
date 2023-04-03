@@ -1,24 +1,18 @@
 @extends('backend.master')
 @section('content')
 
-<div style="padding:15px">
-<h2 style="text-align:center">Crisis</h2>
-<form action="{{route('crisis.store')}}" method="post">
-
-    @csrf
-  <div class="form-group" >
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter name">
-    <label for="image">Upload Image</label>
-    <input id="image" type="file" class="form-control" name="image">
-    <label for="location">Location</label>
-    <input type="text" class="form-control" name="location" placeholder="Enter location">
-    <label for="crisis type">Crisis Type</label>
-    <input type="text" class="form-control" name="crisis_type" placeholder="Enter crisis type">
-    <label for="date">Date</label>
-    <input type="date" class="form-control" name="date" placeholder="Enter date">
-  </div>
-  <button type="submit" class="btn btn-primary">Back</button>
-</form>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center"><img src="{{url('/uploads/'.$crisis->image)}}" alt="Image" style="width: 170px"><span class="name mt-3"><b>Crisis:</b> {{$crisis->name}}</span> <span class="idd"><b>Description:</b> {{$crisis->description}}</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1"><b>Location:</b> {{$crisis->Location->name}}</span> <span><img src="{{url('/backend/sticker/location.png')}}" style="width: 25px" ></span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Amount Need:</b> {{$crisis->amount_need}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Amount Raised:</b> {{$crisis->amount_raised}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Crisis Type:</b> {{$crisis->Crisistypes->name}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>From Date:</b> {{$crisis->from_date}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>To Date:</b> {{$crisis->to_date}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Volunteer:</b> <a href="{{route('volunteer.view',$crisis->volunteer_id)}}"> {{$crisis->Volunteer->name}}</a></span> </div>
+            
+        </div>
+    </div>
 </div>
 @endsection

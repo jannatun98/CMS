@@ -3,7 +3,7 @@
 
 <div style="padding:15px">
 <h2 style="text-align:center">Volunteers</h2>
-<form action="{{route('volunteer.update',$volunteer->id)}}" method="post">
+<form action="{{route('volunteer.update',$volunteer->id)}}" method="post" enctype="multipart/form-data">
     @method('put')
 
     @if($errors->any())
@@ -18,6 +18,8 @@
 
     @csrf
   <div class="form-group" >
+  <label for="image">Upload Image</label>
+    <input id="image" type="file" class="form-control" name="image">
     <label for="name">Name</label>
     <input required id="name" value="{{$volunteer->name}}" type="text" class="form-control" name="name">
     <label for="email">Email</label>

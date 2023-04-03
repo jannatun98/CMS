@@ -15,9 +15,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($expensecats as $key=>$expensecat)
+    @foreach($expensecats as $expensecat)
     <tr>
-    <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$expensecat->id}}</th>
     <td scope="row">{{$expensecat->name}}</td>
     <td scope="row">{{$expensecat->status}}</td>
     <td scope="row">{{$expensecat->description}}</td>

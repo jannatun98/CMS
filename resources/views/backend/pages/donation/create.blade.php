@@ -33,7 +33,7 @@
     
 
     <label for="donate_amount">Donate Amount</label>
-    <input required id="donate_amount" type="number" class="form-control" name="donate_amount">
+    <input required min="500" id="donate_amount" type="number" class="form-control" name="donate_amount">
     <label for="payment_method">Payment Method</label>
     <input required id="payment_method" type="text" class="form-control" name="payment_method">
     <label for="transaction_id">Transaction ID</label>

@@ -8,6 +8,8 @@
         <meta name="author" content="" />
         <title>CMS</title>
         <link href="{{url('/backend/css/backendcritypesview.css')}}">
+        <link href="{{url('/backend/css/crisis.css')}}">
+        <link href="{{url('/backend/css/donor.css')}}">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{{url('backend/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>

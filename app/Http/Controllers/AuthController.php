@@ -15,6 +15,7 @@ class AuthController extends Controller
         //dd($request->all());
         $cradentials = $request->except("_token");
         if(auth()->attempt($cradentials)){
+            toastr()->success('Successfully logged in.');
             return redirect()->route('home');
         }
 
@@ -22,6 +23,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->back()->with('message', 'Logout Successful.');
+        toastr()->success('Successfully logged out.');
+        return redirect()->back();
     }
 }

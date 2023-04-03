@@ -23,15 +23,15 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($crisis as $key=>$cry)
+  @foreach($crisis as $cry)
     <tr>
-      <th scope="row">{{$key+1}}</th>
+      <th scope="row">{{$cry->id}}</th>
       <td>
-        <img width="70px" src="{{url('/uploads/'.$cry->image)}}" alt="Image">
+        <img width="120px" height="120px" src="{{url('/uploads/'.$cry->image)}}" alt="Image">
       </td>
       <td>{{$cry->name}}</td>
       <td>{{$cry->description}}</td>
-      <td>{{$cry->location}}</td>
+      <td>{{$cry->location_id}}</td>
       <td>{{$cry->amount_need}}</td>
       <td>{{$cry->amount_raised}}</td>      
       <td>{{$cry->crisistype_id}}</td>

@@ -18,11 +18,11 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($donors as $key=>$donor)
+    @foreach($donors as $donor)
     <tr>
-    <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$donor->id}}</th>
     <td>
-        <img width="70px" src="{{url('/uploads/'.$donor->image)}}" alt="Image" >
+        <img width="120px" height="120px" src="{{url('/uploads/'.$donor->image)}}" alt="Image" >
     </td>
     <td scope="row">{{$donor->name}}</td>
     <td scope="row">{{$donor->address}}</td>

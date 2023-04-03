@@ -12,9 +12,9 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($payments as $key=>$payment)
+  @foreach($payments as $payment)
     <tr>
-      <th scope="row">{{$key+1}}</th>
+      <th scope="row">{{$payment->id}}</th>
       <td>{{$payment->payment_method}}</td>
       <td>{{$payment->payment_status}}</td>
       <td>
