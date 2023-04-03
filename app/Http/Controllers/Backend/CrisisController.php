@@ -8,7 +8,7 @@ use App\Models\Volunteer;
 use App\Models\Crisistypes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Location;
 
 class CrisisController extends Controller
 {
@@ -20,38 +20,42 @@ class CrisisController extends Controller
     public function crisis_create(){
         $crisis=Crisistypes::all();
         $volunteers=Volunteer::all();
-        return view('backend.pages.crisis.create', compact('volunteers','crisis'));
+        $locate=Location::all();
+        return view('backend.pages.crisis.create', compact('volunteers','crisis','locate'));
 
         
     }
 
     public function crisis_store(Request $request){
 
-        $fileName=null;
-        if($request->hasFile('image'))
-        {
-            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads',$fileName);
-        }
-
+        
         $request->validate([
             'name'=>'required',
             'description'=>'required',
-            'location'=>'required',
-            'amount_need'=>'required|min:1',
-            'amount_raised'=>'required',
+            'location_id'=>'required',
+            'amount_need'=>'required|numeric|gt:0',
+            'amount_raised'=>'required|numeric|gt:0|lt:amount_need',
             'crisistype_id'=>'required',
             'from_date'=>'required',
-            'to_date'=>'required',
+            'to_date'=>'required|after:from_date',
             'volunteer_id'=>'required',
             'image'=>'required'
         ]);
+
+     
+        $fileName=null;
+        if($request->hasFile('image'))
+        {
+           
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        }
 
 
         Crisis::create([
             "name"=>$request->name,
             "description"=>$request->description,
-            "location"=>$request->location,
+            "location_id"=>$request->location_id,
             "amount_need"=>$request->amount_need,
             "amount_raised"=>$request->amount_raised,
             "crisistype_id"=>$request->crisistype_id,
@@ -77,7 +81,8 @@ class CrisisController extends Controller
         $cri=Crisis::find($id);
         $crisis=Crisistypes::all();
         $volunteers=Volunteer::all();
-        return view('backend.pages.crisis.edit', compact('volunteers','crisis','cri'));
+        $locate=Location::all();
+        return view('backend.pages.crisis.edit', compact('volunteers','crisis','cri','locate'));
        
         
     }
@@ -94,7 +99,7 @@ class CrisisController extends Controller
         $crisis->update([
             "name"=>$request->name,
             "description"=>$request->description,
-            "location"=>$request->location,
+            "location_id"=>$request->location_id,
             "amount_need"=>$request->amount_need,
             "amount_raised"=>$request->amount_raised,
             "crisistype_id"=>$request->crisistype_id,

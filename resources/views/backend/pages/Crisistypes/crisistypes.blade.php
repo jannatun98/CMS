@@ -14,9 +14,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($crisistypes as $key=>$types)
+    @foreach($crisistypes as $types)
     <tr>
-    <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$types->id}}</th>
     <td scope="row">{{$types->name}}</td>
     <td scope="row">{{$types->status}}</td>
     <td>

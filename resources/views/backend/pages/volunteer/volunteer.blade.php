@@ -7,6 +7,7 @@
 <thead>
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
@@ -17,9 +18,12 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($volunteers as $key=>$volunteer)
+    @foreach($volunteers as $volunteer)
     <tr>
-    <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$volunteer->id}}</th>
+    <td>
+        <img width="120px" height="120px" src="{{url('/uploads/'.$volunteer->image)}}" alt="Image" >
+    </td>
     <td scope="row">{{$volunteer->name}}</td>
     <td scope="row">{{$volunteer->email}}</td>
     <td scope="row">{{$volunteer->phone}}</td>

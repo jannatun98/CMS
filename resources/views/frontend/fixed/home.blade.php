@@ -67,17 +67,8 @@
 					<div class="row no-gutters slider-text js-fullheight align-items-center">
 						<div class="col-md-10 col-lg-7 ftco-animate">
 							<div class="text w-100">
-								<h2>Help the poor in need</h2>
-								<h1 class="mb-3">Lend the helping hand get involved</h1>
-								<div class="d-flex meta">
-									<div class=""><p class="mb-0"><a href="#" class="btn btn-secondary py-3 px-2 px-md-4">Become A Volunteer</a></p></div>
-									<a href="#" class="d-flex align-items-center button-link">
-										<div class="button-video d-flex align-items-center justify-content-center">
-											<span class="fa fa-play"></span>
-										</div>
-										<span>Watch our video</span>
-									</a>
-								</div>
+								<h2>{{__('Help the needy in need')}}</h2>
+								<h1 class="mb-3">{{__('Lend the helping hand get involved')}}</h1>
 							</div>
 						</div>
 					</div>
@@ -90,17 +81,8 @@
 					<div class="row no-gutters slider-text js-fullheight align-items-center">
 						<div class="col-md-10 col-lg-7 ftco-animate">
 							<div class="text w-100">
-								<h2>Raising Hope</h2>
-								<h1 class="mb-3">Discover Non-Profit Charity Platform</h1>
-								<div class="d-flex meta">
-									<div class=""><p class="mb-0"><a href="#" class="btn btn-secondary py-3 px-2 px-md-4">Become A Volunteer</a></p></div>
-									<a href="#" class="d-flex align-items-center button-link">
-										<div class="button-video d-flex align-items-center justify-content-center">
-											<span class="fa fa-play"></span>
-										</div>
-										<span>Watch our video</span>
-									</a>
-								</div>
+								<h2>{{__('Raising Hope')}}</h2>
+								<h1 class="mb-3">{{__('Charity for raising hope')}}</h1>
 							</div>
 						</div>
 					</div>
@@ -113,17 +95,8 @@
 					<div class="row no-gutters slider-text js-fullheight align-items-center">
 						<div class="col-md-10 col-lg-7 ftco-animate">
 							<div class="text w-100">
-								<h2>Raising Hope</h2>
-								<h1 class="mb-3">Giving Hope to the Homeless People</h1>
-								<div class="d-flex meta">
-									<div class=""><p class="mb-0"><a href="#" class="btn btn-secondary py-3 px-2 px-md-4">Become A Volunteer</a></p></div>
-									<a href="#" class="d-flex align-items-center button-link">
-										<div class="button-video d-flex align-items-center justify-content-center">
-											<span class="fa fa-play"></span>
-										</div>
-										<span>Watch our video</span>
-									</a>
-								</div>
+								<h2>{{__('Raising Hope')}}</h2>
+								<h1 class="mb-3">{{__('Giving Hope to the Homeless People')}}</h1>
 							</div>
 						</div>
 					</div>
@@ -143,14 +116,14 @@
 							<h4>{{__('Donation Campaign')}} <br>{{__('are running')}}</h4>
 							<p class="d-flex align-items-center">
 								<span>$</span>
-								<span class="number" data-number="24781">0</span>
+								<span class="number" data-number="30000">0</span>
 							</p>
 						</div>
 						<form action="#" class="appointment">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Full Name</label>
+										<label for="name">{{__('Full Name')}}</label>
 										<div class="input-wrap">
 											<div class="icon"><span class="fa fa-user"></span></div>
 											<input type="text" class="form-control" placeholder="">
@@ -159,7 +132,7 @@
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Email Address</label>
+										<label for="name">{{__('Email Address')}}</label>
 										<div class="input-wrap">
 											<div class="icon"><span class="fa fa-paper-plane"></span></div>
 											<input type="email" class="form-control" placeholder="">
@@ -168,7 +141,7 @@
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Select Causes</label>
+										<label for="name">{{__('Select Causes')}}</label>
 										<div class="form-field">
 											<div class="select-wrap">
 												<div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -189,16 +162,16 @@
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Amount</label>
+										<label for="name">{{__('Amount')}}</label>
 										<div class="input-wrap">
 											<div class="icon"><span class="fa fa-money"></span></div>
-											<input type="text" class="form-control" placeholder="$5">
+											<input type="text" class="form-control" placeholder="$">
 										</div>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="name">Payment Method</label>
+										<label for="name">{{__('Payment Method')}}</label>
 										<div class="d-lg-flex">
 											<div class="form-radio mr-3">
 												<div class="radio">

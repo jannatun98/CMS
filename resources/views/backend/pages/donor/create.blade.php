@@ -24,7 +24,7 @@
     <label for="address">Address</label>
     <input required id="address" type="text" class="form-control" name="address">
     <label for="age">Age</label>
-    <input required id="age" type="text" class="form-control" name="age" placeholder="Enter age">
+    <input required min="20" id="age" type="text" class="form-control" name="age" placeholder="Enter age">
     <label for="gender">Select Gender</label>
        <select name="gender" id="gender" class="form-control">
           <option value="male">Male</option>

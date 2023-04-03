@@ -17,6 +17,13 @@
 
     @csrf
   <div class="form-group" >
+  <label for="crisis_id">Crisis Name</label>
+    <select class="form-control" name="crisis_id" id="crisis_id" >
+      @foreach($cris as $crisis)
+      <option value="{{$crisis->id}}">{{$crisis->name}}</option>
+      @endforeach
+    </select>
+
     <label for="expense_category_id">Expense Category Name</label>
     <select class="form-control" name="expense_category_id" id="expense_category_id" >
       @foreach($expen as $ex)

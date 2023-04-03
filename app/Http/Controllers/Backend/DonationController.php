@@ -28,8 +28,8 @@ class DonationController extends Controller
         $request->validate([
             'crisis_id'=>'required',
             'donor_id'=>'required',
-            'donate_amount'=>'required',
-            'payment_method'=>'required|min:1',
+            'donate_amount'=>'required|min:3',
+            'payment_method'=>'required',
             'transaction_id'=>'required',
         ]);
 
@@ -76,6 +76,7 @@ class DonationController extends Controller
     }
 
     public function donation_view($id){
+       
         $donate=Donation::find($id);
         return view('backend.pages.donation.view',compact('donate'));
 

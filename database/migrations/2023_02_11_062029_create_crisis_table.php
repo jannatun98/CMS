@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('location');
+            $table->foreignId('location_id');
             $table->integer('amount_need');
             $table->integer('amount_raised');
-            $table->foreignId('crisistype_id');
+            $table->foreignId('crisistype_id')->constrained('crisistypes');
             $table->string('from_date');
             $table->string('to_date');
             $table->foreignId('volunteer_id');

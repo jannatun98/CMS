@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('crisis_id');
             $table->foreignId('donor_id');
             $table->string('donate_amount');
-            $table->foreignId('payment_method');
+            $table->string('payment_method');
             $table->string('transaction_id');
             $table->timestamps();
         });

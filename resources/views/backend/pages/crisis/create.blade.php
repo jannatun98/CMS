@@ -22,8 +22,14 @@
     <input id="image" type="file" class="form-control" name="image">
     <label for="description">Description</label>
     <input required id="description" type="text" class="form-control" name="description">
-    <label for="location">Location</label>
-    <input required id="location" type="text" class="form-control" name="location" placeholder="Enter location">
+
+    <label for="name">Location</label>
+    <select class="form-control" name="location_id" id="location_id">
+      @foreach($locate as $loc)
+      <option value="{{$loc->id}}"> {{$loc->name}} </option>
+     @endforeach
+    </select>
+    
     <label for="amount_need">Amount Need</label>
     <input required id="amount_need" type="number" class="form-control" name="amount_need">
     <label for="amount_raised">Amount Raised</label>

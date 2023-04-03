@@ -19,13 +19,13 @@ class DonorController extends Controller
 
     public function donor_store(Request $request){
 
-            //dd($request->all());
+            // dd($request->all());
         $request->validate([
             'name'=>'required',
             'address'=>'required',
-            'age'=>'required',
+            'age'=>'required|numeric|min:20',
             'gender'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|numeric|digits:11',
         ]);
 
          $fileName=null;
@@ -49,8 +49,9 @@ class DonorController extends Controller
 
     public function donor_delete($id){
         Donor::find($id)->delete();
-        return redirect()->route('donor');
         toastr()->success('Donor deleted successfully.');
+        return redirect()->route('donor');
+        
     }
 
     public function donor_edit($id){
@@ -62,6 +63,7 @@ class DonorController extends Controller
         $donor=Donor::find($id);
 
         $fileName=$donor->image;
+      
         if($req->hasFile('image'))
         {
             $fileName=date('Ymdhmi').'.'.$req->file('image')->getClientOriginalExtension();
@@ -81,6 +83,7 @@ class DonorController extends Controller
     }
 
     public function donor_view($id)
+    
     {
         $donor=Donor::find($id);
         return view('backend.pages.donor.view',compact('donor'));

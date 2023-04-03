@@ -14,9 +14,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($volunteertocri as $key=>$volunteertocris)
+    @foreach($volunteertocri as $volunteertocris)
     <tr>
-    <th scope="row">{{$key+1}}</th>
+    <th scope="row">{{$volunteertocris->id}}</th>
     <td scope="row">{{$volunteertocris->crisis_id}}</td>
     <td scope="row">{{$volunteertocris->volunteer_id}}</td>
     <td>
