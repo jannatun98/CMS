@@ -61,6 +61,16 @@ class DonationController extends Controller
 
     public function donation_update(Request $request, $id){
 
+        $request->validate([
+            'crisis_id'=>'required',
+            'donor_id'=>'required',
+            'donate_amount'=>'required|min:3',
+            'payment_method'=>'required',
+            'transaction_id'=>'required',
+        ]);
+
+
+
         $donation=Donation::find($id);
 
         $donation->update([

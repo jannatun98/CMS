@@ -50,6 +50,12 @@ class LocationController extends Controller
 
 
     public function location_update(Request $request ,$id){
+
+        $request->validate([
+            'location_name'=>'required',
+            'location_address'=>'required'
+        ]);
+
         $locations=Location::find($id);
         $locations->update([
             'name'=>$request->location_name,

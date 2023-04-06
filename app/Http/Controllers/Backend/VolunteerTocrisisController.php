@@ -52,6 +52,12 @@ class VolunteerTocrisisController extends Controller
     }
 
     public function volunteertocrisis_update(Request $request, $id){
+
+        $request->validate([
+            'crisis_id'=>'required',
+            'volunteer_id'=>'required'
+        ]);
+
         $volunteertocris=VolunteerToCrisis::find($id);
         $volunteertocris->update([
             'crisis_id'=>$request->crisis_id,

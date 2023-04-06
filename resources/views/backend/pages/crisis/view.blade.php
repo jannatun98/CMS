@@ -8,8 +8,8 @@
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Amount Need:</b> {{$crisis->amount_need}}</span> </div>
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Amount Raised:</b> {{$crisis->amount_raised}}</span> </div>
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Crisis Type:</b> {{$crisis->Crisistypes->name}}</span> </div>
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>From Date:</b> {{$crisis->from_date}}</span> </div>
-            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>To Date:</b> {{$crisis->to_date}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>From:</b> {{$crisis->from_date}}</span> </div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>To:</b> {{$crisis->to_date}}</span> </div>
             <div class="d-flex flex-row justify-content-center align-items-center mt-3"><span class="follow"><b>Volunteer:</b> <a href="{{route('volunteer.view',$crisis->volunteer_id)}}"> {{$crisis->Volunteer->name}}</a></span> </div>
             
         </div>

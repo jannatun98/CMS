@@ -46,6 +46,13 @@ class ExpenseCategoryController extends Controller
     }
 
     public function expensecategory_update(Request $request,$id){
+
+        $request->validate([
+            'name'=>'required',
+            'status'=>'required',
+            'description'=>'required'
+        ]);
+
         $expense=ExpenseCategory::find($id);
         $expense->update([
             "name"=>$request->name,

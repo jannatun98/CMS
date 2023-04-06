@@ -44,6 +44,12 @@ class PaymentController extends Controller
  }
 
  public function payment_update(Request $request, $id){
+
+  $request->validate([
+    'payment_method'=>'required',
+    'payment_status'=>'required',
+]);
+
    $payment=Payment::find($id);
    $payment->update([
     "payment_method"=>$request->payment_method,

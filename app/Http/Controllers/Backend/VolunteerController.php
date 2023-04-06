@@ -59,6 +59,15 @@ class VolunteerController extends Controller
     }
 
     public function volunteer_update(Request $request, $id){
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required|numeric|digits:11',
+            'address'=>'required',
+            
+       ]);
+
         $volunteer=Volunteer::find($id);
 
         $fileName=$volunteer->image;

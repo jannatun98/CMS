@@ -58,6 +58,15 @@ class ExpenseController extends Controller
     }
 
     public function expense_update(Request $request, $id){
+
+        $request->validate([
+            'crisis_id'=>'required',
+            'expense_category_id'=>'required',
+            'volunteer_id'=>'required',
+            'expense_title'=>'required',
+            'details'=>'required',
+        ]);
+
         $expense=Expense::find($id);
         $expense->update([
             "crisis_id"=>$request->crisis_id,

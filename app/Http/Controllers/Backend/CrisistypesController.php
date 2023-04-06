@@ -48,6 +48,12 @@ class CrisistypesController extends Controller
     }
 
     public function crisistypes_update(Request $request, $id){
+
+        $request->validate([
+            'name'=>'required',
+            'status'=>'required'
+        ]);
+
         $crisistypes=Crisistypes::find($id);
 
         $crisistypes->update([

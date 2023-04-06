@@ -88,6 +88,19 @@ class CrisisController extends Controller
     }
 
     public function crisis_update(Request $request, $id){
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'location_id'=>'required',
+            'amount_need'=>'required|numeric|gt:0',
+            'amount_raised'=>'required|numeric|gt:0|lt:amount_need',
+            'crisistype_id'=>'required',
+            'from_date'=>'required',
+            'to_date'=>'required|after:from_date',
+            'volunteer_id'=>'required',
+            'image'=>'required'
+        ]);
+
         $crisis=Crisis::find($id);
         $fileName=$crisis->image;
         if($request->hasFile('image'))

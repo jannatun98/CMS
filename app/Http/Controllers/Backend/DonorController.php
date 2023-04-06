@@ -60,6 +60,15 @@ class DonorController extends Controller
     }
 
     public function donor_update(Request $req,$id){
+
+        $req->validate([
+            'name'=>'required',
+            'address'=>'required',
+            'age'=>'required|numeric|min:20',
+            'gender'=>'required',
+            'phone'=>'required|numeric|digits:11',
+        ]);
+
         $donor=Donor::find($id);
 
         $fileName=$donor->image;

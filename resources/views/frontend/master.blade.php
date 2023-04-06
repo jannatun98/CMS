@@ -23,6 +23,14 @@
 
 	<link rel="stylesheet" href="{{url('frontend/css/flaticon.css')}}">
 	<link rel="stylesheet" href="{{url('frontend/css/style.css')}}">
+	<link rel="stylesheet" href="{{url('frontend/css/frontvolunteerview.css')}}">
+
+<style>
+	#toast-container{
+		margin-top: 200px !important 
+	}
+</style>
+
 </head>
 <body>
 
@@ -62,6 +70,7 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 		<script src="{{url('frontend/js/google-map.js')}}"></script>
 		<script src="{{url('frontend/js/main.js')}}"></script>
+		
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"></script>
 		

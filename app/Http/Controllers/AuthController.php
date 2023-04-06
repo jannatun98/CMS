@@ -18,6 +18,8 @@ class AuthController extends Controller
             toastr()->success('Successfully logged in.');
             return redirect()->route('home');
         }
+        toastr()->error('Invalid information.');
+        return redirect()->back();
 
     }
 
