@@ -41,10 +41,19 @@ Route::group(["middleware" => "localization"], function () {
     Route::post('/signup', [FronthomeController::class, 'signup'])->name('user.signup');
     Route::post('/user/login', [FronthomeController::class, 'login'])->name('user.login');
 
+    Route::post('/volunteer/signup',[WebvolunteerController::class,'volunteersignup'])->name('volunteer.signup');
+
     Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/user/logout', [FronthomeController::class, 'logout'])->name('user.logout');
+        Route::get('/profile',[FronthomeController::class,'profile'])->name('user.profile');
+        Route::put('/profile/update',[FronthomeController::class,'updateProfile'])->name('profile.update');
+        Route::get('/location/home/{id}',[FronthomeController::class, 'locationview'])->name('user.location');
+        Route::get('/crisistypes/home/{id}',[FronthomeController::class, 'crisistypesview'])->name('user.crisistypes');
+        Route::get('/donatenow/home',[FronthomeController::class, 'donatenowform'])->name('user.donatenowform');
+        Route::post('/donatenow/submit/home',[FronthomeController::class, 'donatenowsubmit'])->name('user.donatenowsubmit');
         Route::get('/volunteer/home/{id}',[WebvolunteerController::class, 'volunteerview'])->name('user.volunteer');
+        
         
     });
     Route::get('/switch-lang/{lang}', [FronthomeController::class, 'changelanguage'])->name('switch.language');
@@ -62,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-        Route::get('/home', [HomeController::class, 'home'])->name('home');
+        Route::get('/admin', [HomeController::class, 'home'])->name('home');
         Route::get('/Dashboard', [DashboardController::class, 'dashboard'])->name('dashbord');
 
         //Crisis

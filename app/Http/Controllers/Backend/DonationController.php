@@ -24,7 +24,6 @@ class DonationController extends Controller
 
     public function donation_store(Request $request){
 
-
         $request->validate([
             'crisis_id'=>'required',
             'donor_id'=>'required',

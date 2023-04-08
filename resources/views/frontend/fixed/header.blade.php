@@ -34,7 +34,8 @@
 		
 		@auth
 
-		<a class="btn btn-light">
+		
+		<a class="btn btn-light" href="{{route('user.profile')}}" class="nav-item nav-link">
 			{{auth()->user()->name}}</a>
 		<a href="{{route('user.logout')}}" class="nav-item nav-link">Logout</a>
 		@else
@@ -50,7 +51,6 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a href="" class="nav-link">{{__('Home')}}</a></li>
 				<li class="nav-item"><a href="" class="nav-link">{{__('About')}}</a></li>
-				<li class="nav-item"><a href="" class="nav-link">{{__('Crisis Types')}}</a></li>
 				<li class="nav-item"><a href="" class="nav-link">{{__('Volunteer To Crisis')}}</a></li>
 				<li class="nav-item"><a href="" class="nav-link">{{__('Expense')}}</a></li>
 				<li class="nav-item"><a href="" class="nav-link">{{__('Donation')}}</a></li>

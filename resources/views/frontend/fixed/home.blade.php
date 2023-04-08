@@ -77,6 +77,50 @@
 </div>
 
 
+
+<!-- Volunteer Sign up -->
+<div class="modal fade" id="volunteersignup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title w-100 font-weight-bold text-center">{{__('SIGN UP AS VOLUNTEER')}}</h4>
+			</div>
+
+			<form action="{{route('volunteer.signup')}}" method="POST">
+				@if($errors->any())
+				@foreach($errors->all() as $error)
+				<p class="alert alert-danger">{{$error}}</p>
+				@endforeach
+				@endif
+
+				@if(session()->has('message'))
+				<p class="alert alert-success">{{session()->get('message')}}</p>
+				@endif
+				<div class="modal-body">
+
+					<!-- form -->
+					@csrf
+					<label for="name"></label>
+					<input required name="name" type="text" class="form-control" id="name" placeholder="{{__('Your Name')}}">
+					<label for="address"></label>
+					<input required name="address" type="text" class="form-control" id="address" placeholder="{{__('Your Address')}}">
+					<label for="email"></label>
+					<input required name="email" type="email" class="form-control" id="email" placeholder="{{__('Your Email')}}">
+					<label for="phone"></label>
+					<input required digits="11" name="phone" type="tel" class="form-control" id="phone" placeholder="{{__('Phone Number')}}">
+					<label for="password"></label>
+					<input required name="password" type="password" class="form-control" id="password" placeholder="{{__('Password')}}">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">{{__('Submit')}}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
 <section class="hero-wrap js-fullheight">
 	<div class="home-slider js-fullheight owl-carousel">
 		<div class="slider-item js-fullheight" style="background-image:url(frontend/images/bg_1.jpg);">
@@ -106,7 +150,7 @@
 					<div class="col-md-10 col-lg-7 ftco-animate">
 						<div class="text w-100">
 							<h2>{{__('Raising Hope')}}</h2>
-							<h1 class="mb-3">{{__('Charity for raising hope')}}</h1>
+							<h1 class="mb-3">{{__('Your help')}},{{__('their hope')}}</h1>
 						</div>
 					</div>
 				</div>
@@ -141,23 +185,26 @@
 
 
 		<div class="mt-4">
-			<div class="d-flex">
+			<div class="row">
 				@foreach($cri as $crisis)
-				<div class="card" style="width: 20rem;">
-					<img class="card-img-top" src="{{url('/uploads/'.$crisis->image)}}" height="250px" alt="Card image cap">
-					<div class="card-body">
-						<h4 class="card-title">{{$crisis->name}}</h4>
-						<p class="card-text">{{$crisis->description}}</p>
-						<p class="card-text"><b>Location:</b> {{$crisis->Location->name}}</p>
-						<p class="card-text"><b>Amount Need:</b> {{$crisis->amount_need}}</p>
-						<p class="card-text"><b>Amount Raised:</b> {{$crisis->amount_raised}}</p>
-						<p class="card-text"><b>Crisis Type:</b> {{$crisis->Crisistypes->name}}</p>
-						<p class="card-text"><b>From:</b> {{$crisis->from_date}}</p>
-						<p class="card-text"><b>To:</b> {{$crisis->to_date}}</p>
-						<p class="card-text"><b>Volunteer:</b> <a href="{{route('user.volunteer',$crisis->id)}}">{{$crisis->Volunteer->name}}</p>
-						<a href="#" class="btn btn-primary">Donate now</a>
+				<div class="col-md-3">
+					<div class="card" style="width: 20rem;">
+						<img class="card-img-top" src="{{url('/uploads/'.$crisis->image)}}" height="250px" alt="Card image cap">
+						<div class="card-body">
+							<h4 class="card-title">{{$crisis->name}}</h4>
+							<p class="card-text">{{$crisis->description}}</p>
+							<p class="card-text"><b>Location:</b> <a href="{{route('user.location',$crisis->id)}}">{{$crisis->Location->name}}</a></p>
+							<p class="card-text"><b>Amount Need:</b> {{$crisis->amount_need}}</p>
+							<p class="card-text"><b>Amount Raised:</b> {{$crisis->amount_raised}}</p>
+							<p class="card-text"><b>Crisis Type:</b><a href="{{route('user.crisistypes',$crisis->id)}}"> {{$crisis->Crisistypes->name}}</a></p>
+							<p class="card-text"><b>From:</b> {{$crisis->from_date}}</p>
+							<p class="card-text"><b>To:</b> {{$crisis->to_date}}</p>
+							<p class="card-text"><b>Volunteer:</b> <a href="{{route('user.volunteer',$crisis->id)}}">{{$crisis->Volunteer->name}}</a></p>
+							<a href="{{route('user.donatenowform')}}" class="btn btn-primary">Donate now</a>
+						</div>
 					</div>
 				</div>
+				
 				@endforeach
 			</div>
 
@@ -188,7 +235,7 @@
 										<strong class="number" data-number="{{$totalvol}}">0</strong>
 									</div>
 									<div class="text">
-										<span>Volunteers</span>
+										<span>{{__('Volunteers')}}</span>
 									</div>
 								</div>
 							</div>
@@ -209,70 +256,12 @@
 							</div>
 						</div>
 					</div>
-					<p><a href="#" class="btn btn-secondary btn-outline-secondary">Become A Volunteer</a></p>
+					<p><a href="" class="btn btn-secondary btn-outline-secondary" data-toggle="modal" data-target="#volunteersignup">{{__('Become A Volunteer')}}</a></p>
 				</div>
 			</div>
 		</div>
 </section>
 
-<section class="ftco-section ftco-no-pt ftco-no-pb">
-	<div class="container">
-		<div class="row no-gutters">
-			<div class="col-md-3 d-flex align-items-stretch">
-				<div class="services">
-					<div class="text text-center bg-secondary">
-						<h3>Become a <br>Volunteer</h3>
-						<p>But nothing the copy said could convince her and so it didn’t take long until a few</p>
-					</div>
-					<div class="img border-2" style="background-image: url(frontend/images/services-1.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-volunteer"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-items-stretch">
-				<div class="services">
-					<div class="text text-center bg-tertiary">
-						<h3>Quick <br>Fundraising</h3>
-						<p>But nothing the copy said could convince her and so it didn’t take long until a few</p>
-					</div>
-					<div class="img border-3" style="background-image: url(frontend/images/services-2.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-piggy-bank"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-items-stretch">
-				<div class="services">
-					<div class="text text-center bg-primary">
-						<h3>Start <br>Donating</h3>
-						<p>But nothing the copy said could convince her and so it didn’t take long until a few</p>
-					</div>
-					<div class="img border-1" style="background-image: url(frontend/images/services-3.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-donation"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 d-flex align-items-stretch">
-				<div class="services">
-					<div class="text text-center bg-quarternary">
-						<h3>Get <br>Involved</h3>
-						<p>But nothing the copy said could convince her and so it didn’t take long until a few</p>
-					</div>
-					<div class="img border-4" style="background-image: url(frontend/images/services-4.jpg);">
-						<div class="icon d-flex align-items-center justify-content-center">
-							<span class="flaticon-ecological"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
 <section class="ftco-section ftco-no-pb">
 	<div class="container">
@@ -621,10 +610,10 @@
 				<div class="volunteer">
 					<div><img width="255px" height="250px" src="{{url('/uploads/'.$vol->image)}}"></div><br><br>
 					<a href="{{route('user.volunteer',$vol->id)}}">
-					<div class="text text-4">
-						<h3>{{$vol->name}}</h3>
-						<span>Volunteer</span>
-					</div>
+						<div class="text text-4">
+							<h3>{{$vol->name}}</h3>
+							<span>Volunteer</span>
+						</div>
 					</a>
 				</div>
 			</div>
