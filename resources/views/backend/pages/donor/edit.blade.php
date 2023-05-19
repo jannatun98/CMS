@@ -21,6 +21,8 @@
   <div class="form-group" >
     <label for="name">Name</label>
     <input required id="name" value="{{$donor->name}}" type="text" class="form-control" name="name" placeholder="Enter donor name">
+    <label for="email">Email</label>
+      <input required id="email" value="{{$donor->email}}" type="email" class="form-control" name="email" placeholder="Enter donor email">
     <label for="image">Upload Image</label>
     <input id="image" type="file" class="form-control" name="image">
     <label for="address">Address</label>

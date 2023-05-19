@@ -7,18 +7,19 @@ use App\Models\Expense;
 use App\Models\ExpenseCategory;
 use App\Models\Volunteer;
 use App\Models\Crisis;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
      public function expense(){
-        $expenses=Expense::paginate(5);
+        $expenses=Expense::paginate(20);
         return view('backend.pages.expense.expense',compact('expenses'));
     }
 
     public function expense_create(){
         $expen=ExpenseCategory::all();
-        $volun=Volunteer::all();
+        $volun=User::where('role','volunteer')->get();
         $cris=Crisis::all();
         return view('backend.pages.expense.create',compact('expen','volun', 'cris'));
     }
@@ -28,6 +29,7 @@ class ExpenseController extends Controller
             'expense_category_id'=>'required',
             'volunteer_id'=>'required',
             'expense_title'=>'required',
+            'amount'=>'required',
             'details'=>'required',
         ]);
 
@@ -36,6 +38,7 @@ class ExpenseController extends Controller
             "expense_category_id"=>$request->expense_category_id,
             "volunteer_id"=>$request->volunteer_id,
             "expense_title"=>$request->expense_title,
+            "amount"=>$request->amount,
             "details"=>$request->details,
             
         ]);
@@ -52,7 +55,7 @@ class ExpenseController extends Controller
     public function expense_edit($id){
         $expense=Expense::find($id);
         $expen=ExpenseCategory::all();
-        $volun=Volunteer::all();
+        $volun=User::where('role','volunteer')->get();
         $cris=Crisis::all();
         return view('backend.pages.expense.edit',compact('expense','expen','volun','cris'));
     }
@@ -64,6 +67,7 @@ class ExpenseController extends Controller
             'expense_category_id'=>'required',
             'volunteer_id'=>'required',
             'expense_title'=>'required',
+            'amount'=>'required',
             'details'=>'required',
         ]);
 
@@ -73,6 +77,7 @@ class ExpenseController extends Controller
             "expense_category_id"=>$request->expense_category_id,
             "volunteer_id"=>$request->volunteer_id,
             "expense_title"=>$request->expense_title,
+            "amount"=>$request->amount,
             "details"=>$request->details,
 
         ]);

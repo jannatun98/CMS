@@ -23,11 +23,11 @@
 <input required id="name" value="{{$critypes->name}}" type="text" class="form-control" name="name" placeholder="Enter name">
 <label for="status">Select Status</label>
                 <select name="status" id="status" class="form-control">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
                 </select>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">Update</button>
 </form>
 </div>
 

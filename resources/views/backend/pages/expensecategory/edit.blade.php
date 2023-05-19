@@ -20,8 +20,11 @@
   <div class="form-group" >
     <label for="name">Name</label>
     <input required id="name" value="{{$expensecat->name}}" type="text" class="form-control" name="name">
-    <label for="status">Status</label>
-    <input required id="status" value="{{$expensecat->status}}" type="text" class="form-control" name="status">
+    <label for="status">Select Status</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
     <label for="description">Description</label>
     <input required id="description" value="{{$expensecat->description}}" type="text" class="form-control" name="description">
     

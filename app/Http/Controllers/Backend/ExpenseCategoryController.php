@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ExpenseCategoryController extends Controller
 {
     public function expense_category(){
-        $expensecats=ExpenseCategory::paginate(5);
+        $expensecats=ExpenseCategory::paginate(20);
         return view('backend.pages.expensecategory.expensecategory',compact('expensecats'));
     }
 

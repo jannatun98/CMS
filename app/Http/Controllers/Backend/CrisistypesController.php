@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class CrisistypesController extends Controller
 {
     public function crisistypes(){
-        $crisistypes=Crisistypes::paginate(3);
+        $crisistypes=Crisistypes::paginate(20);
         return view('backend.pages.crisistypes.crisistypes',compact('crisistypes'));
 
     }

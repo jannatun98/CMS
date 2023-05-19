@@ -42,11 +42,11 @@
                                 <div class="sb-nav-link-icon"><img src="{{url('/backend/sticker/categories.png')}}" style="width: 25px"></div>
                                 Expense Category
                             </a>
-                            <a class="nav-link" href="{{url('/Payment')}}">
+                            <!-- <a class="nav-link" href="{{url('/Payment')}}">
                                 <div class="sb-nav-link-icon"><img src="{{url('/backend/sticker/payment-method.png')}}" style="width: 25px"></div>
                                 Payment
-                            </a>
-                            <a class="nav-link" href="{{url('/Report')}}">
+                            </a> -->
+                            <a class="nav-link" href="{{route('donation.report')}}">
                                 <div class="sb-nav-link-icon"><img src="{{url('/backend/sticker/report.png')}}" style="width: 25px"></div>
                                 Report
                             </a>

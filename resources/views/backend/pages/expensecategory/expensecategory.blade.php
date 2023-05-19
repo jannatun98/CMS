@@ -1,5 +1,6 @@
 @extends('backend.master')
 @section('content')
+<div style="padding:15px">
 <h2 style="text-align:center">Expense Category</h2>
 <a href="{{route('expensecategory.create')}}" class="btn btn-outline-primary text black">Add Expense Category</a>
 
@@ -15,9 +16,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($expensecats as $expensecat)
+    @foreach($expensecats as $key=>$expensecat)
     <tr>
-    <th scope="row">{{$expensecat->id}}</th>
+    <th scope="row">{{$key+1}}</th>
     <td scope="row">{{$expensecat->name}}</td>
     <td scope="row">{{$expensecat->status}}</td>
     <td scope="row">{{$expensecat->description}}</td>
@@ -37,5 +38,5 @@
 
 {{$expensecats->links()}}
 
-
+<div style="padding:15px">
 @endsection

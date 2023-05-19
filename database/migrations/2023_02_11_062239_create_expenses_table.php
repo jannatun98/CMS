@@ -18,7 +18,9 @@ return new class extends Migration
             $table->foreignId('crisis_id');
             $table->foreignId('expense_category_id');
             $table->foreignId('volunteer_id');
+            $table->string('name');
             $table->string('expense_title');
+            $table->string('amount');
             $table->string('details');
             $table->timestamps();
             

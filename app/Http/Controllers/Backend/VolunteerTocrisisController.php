@@ -5,19 +5,20 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\VolunteerToCrisis;
 use App\Models\Crisis;
+use App\Models\User;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class VolunteerTocrisisController extends Controller
 {
     public function volunteer_to_crisis(){
-        $volunteertocri=VolunteerToCrisis::paginate(5);
+        $volunteertocri=VolunteerToCrisis::paginate(20);
         return view('backend.pages.volunteertocrisis.volunteertocrisis',compact('volunteertocri'));
     }
 
     public function volunteertocrisis_create(){
         $crys=Crisis::all();
-        $volunteer=Volunteer::all();
+        $volunteer=User::where('role','volunteer')->get();
         return view('backend.pages.volunteertocrisis.create',compact('crys','volunteer'));
     }
 
@@ -45,7 +46,7 @@ class VolunteerTocrisisController extends Controller
     public function volunteertocrisis_edit($id){
         $volunteertocri=VolunteerToCrisis::find($id);
         $crys=Crisis::all();
-        $volunteer=Volunteer::all();
+        $volunteer=User::where('role','volunteer')->get();
 
         // dd($volunteertocri);
         return view('backend.pages.volunteertocrisis.edit',compact('volunteertocri','crys','volunteer'));

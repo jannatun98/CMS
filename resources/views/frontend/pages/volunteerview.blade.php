@@ -17,8 +17,6 @@
                     <h5 class="mt-2 mb-0">{{$volun->name}}</h5>
                     <span>{{$volun->email}}</span>
                     <h6 class="mt-2 mb-0">{{$volun->phone}}</h6>
-                    
-                    
                 </div>
                 
                

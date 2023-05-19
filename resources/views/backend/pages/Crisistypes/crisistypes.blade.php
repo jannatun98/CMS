@@ -1,5 +1,6 @@
 @extends('backend.master')
 @section('content')
+<div style="padding:15px">
 <h2 style="text-align:center">Crisis Types</h2>
 <a href="{{route('crisistypes.create')}}" class="btn btn-outline-primary text black">Add Crisis Types</a>
 
@@ -14,9 +15,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($crisistypes as $types)
+    @foreach($crisistypes as $key=>$types)
     <tr>
-    <th scope="row">{{$types->id}}</th>
+    <th scope="row">{{$key+1}}</th>
     <td scope="row">{{$types->name}}</td>
     <td scope="row">{{$types->status}}</td>
     <td>
@@ -34,6 +35,6 @@
 </table>
 
 {{$crisistypes->links()}}
-
+</div>
 
 @endsection

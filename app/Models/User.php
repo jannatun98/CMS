@@ -35,6 +35,14 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function Donor(){
+        return $this->belongsTo(Donor::class);
+    }
+
+    public function Volunteer(){
+        return $this->belongsTo(Donor::class);
+    }
+
     /**
      * The attributes that should be cast.
      *

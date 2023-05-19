@@ -21,7 +21,7 @@ class Crisis extends Model
         return $this->belongsTo(Location::class);
     }
 
-    public function Volunteer(){
-        return $this->belongsTo(Volunteer::class);
+    public function volunteer(){
+        return $this->belongsTo(User::class,"volunteer_id","id");
     }
 }

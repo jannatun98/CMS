@@ -33,7 +33,7 @@
     <label for="amount_need">Amount Need</label>
     <input required id="amount_need" type="number" class="form-control" name="amount_need">
     <label for="amount_raised">Amount Raised</label>
-    <input required id="amount_raised" type="number" class="form-control" name="amount_raised">
+    <input readonly required id="amount_raised" type="number" class="form-control" name="amount_raised">
 
     <label for="crisistype_id">Crisis Type</label>
     <select class="form-control" name="crisistype_id" id="crisistype_id">
@@ -47,12 +47,12 @@
     <label for="to_date">To Date</label>
     <input required id="to_date" type="date" class="form-control" name="to_date" placeholder="Enter date">
     
-    <label for="volunteer_id">Volunteer Name</label>
+    <!-- <label for="volunteer_id">Volunteer Name</label>
     <select class="form-control" name="volunteer_id" id="volunteer_id">
       @foreach($volunteers as $vol)
       <option value="{{$vol->id}}">{{$vol->name}}</option>
       @endforeach
-    </select>
+    </select> -->
 
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>

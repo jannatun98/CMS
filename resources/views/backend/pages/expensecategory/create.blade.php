@@ -19,8 +19,11 @@
   <div class="form-group" >
     <label for="name">Name</label>
     <input required id="name" type="text" class="form-control" name="name">
-    <label for="status">Status</label>
-    <input required id="status" type="text" class="form-control" name="status">
+    <label for="status">Select Status</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
     <label for="description">Description</label>
     <input required id="description" type="text" class="form-control" name="description">
     

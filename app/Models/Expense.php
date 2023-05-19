@@ -14,11 +14,11 @@ class Expense extends Model
         return $this->belongsTo(ExpenseCategory::class);
     }
 
-    public function Volunteer(){
-        return $this->belongsTo(Volunteer::class);
-    }
-
     public function Crisis(){
         return $this->belongsTo(Crisis::class);
+    }
+
+    public function User(){
+        return $this->belongsTo(User::class,'volunteer_id', 'id');
     }
 }

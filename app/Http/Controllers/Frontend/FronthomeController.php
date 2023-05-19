@@ -16,46 +16,75 @@ class FronthomeController extends Controller
 {
     public function profile()
     {
-        return view('frontend.pages.profile');
+        $user=User::find(auth()->user()->id);
+        return view('frontend.pages.profile',compact('user'));
     } 
 
     public function updateProfile(Request $request)
     {
        //validation
+       
+       $request->validate([
+        'name'=>'required',
+        'email'=>'required|email',
+        'address'=>'required',
+        'date_of_birth'=>'after:01/01/1943|before:01/01/1998',
+        'gender'=>'required',
+        'phone'=>'required|numeric|digits:11',
+
+    ]);
 
         $user=User::find(auth()->user()->id);
+
+        $fileName=null;
+        $fileName=$user->image;
+        if($request->hasFile('image'))
+        {
+            $fileName=date('Ymdhmi').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads',$fileName);
+        } 
+
         $user->update([
+
+            
            'name'=>$request->name,
            'address'=>$request->address,
+           "image"=>$fileName,
+           "date_of_birth"=>$request->date_of_birth,
+           "gender"=>$request->gender,
+           "phone"=>$request->phone,
+
         ]);
 
         toastr()->success('User profile updated.');
         return redirect()->route('f.home');
     }
 
-    public function donatenowform(){
-        $crisis=Crisis::all();
+    public function donatenowform($id){
+        $crisis=Crisis::find($id);
         $donor=Donor::all();
         return view('frontend.pages.donatenow',compact('crisis','donor'));
     }
 
-    public function donatenowsubmit(Request $request){
+    public function donatenowsubmit(Request $request,$id){
         $request->validate([
-            'crisis_id'=>'required',
-            'donor_id'=>'required',
             'donate_amount'=>'required|min:3',
             'payment_method'=>'required',
-            'transaction_id'=>'required',
+            'transaction_id' => 'required|numeric|digits:12',
         ]);
 
+        // dd($request->all());
 
         Donation::create([
-            "crisis_id"=>$request->crisis_id,
-            "donor_id"=>$request->donor_id,
+            "crisis_id"=>$id,
+            "donor_id"=>auth()->user()->id,
+            "name"=>auth()->user()->name,
             "donate_amount"=>$request->donate_amount,
             "payment_method"=>$request->payment_method,
             "transaction_id"=>$request->transaction_id,
         ]);
+        $crisis=Crisis::find($id);
+        $crisis->increment('amount_raised',$request->donate_amount);
         toastr()->success('Donation submitted.');
         return redirect()->route('f.home');
     }
@@ -65,16 +94,17 @@ class FronthomeController extends Controller
         return view('frontend.pages.crisistypesview',compact('crisistypes'));
     }
 
-    public function locationview($id){
-        $location=Location::find($id);
-        return view('frontend.pages.locationview',compact('location'));
-    }
+    // public function locationview($id){
+    //     $location=Location::find($id);
+    //     return view('frontend.pages.locationview',compact('location'));
+    // }
 
     public function fhome(){
-        $cri=Crisis::all();
-        $volunteer=Volunteer::all();
-        $totalvol=Volunteer::get()->count();
-        return view ('frontend.fixed.home',compact('cri','volunteer','totalvol'));
+        $cri=Crisis::where('to_date', '>=', now())->get();
+        $volunteer=User::where('status', 'accepted')->get();
+        $totalvol=User::where('status', 'accepted')->get()->count();
+        $totaldon=User::where('role', 'donor')->get()->count();
+        return view ('frontend.fixed.home',compact('cri','volunteer','totalvol','totaldon'));
     }
 
     public function signup(Request $request){
@@ -105,6 +135,7 @@ class FronthomeController extends Controller
             'password'=>bcrypt($request->password),
             'role'=>'donor'
         ]);
+        
         toastr()->success('Signed up successfully.');
         return redirect()->back();
     }
@@ -112,7 +143,8 @@ class FronthomeController extends Controller
     public function login(Request $request){
         $request->validate([ 
             'email'=>'required|email',
-            'password'=>'required|digits:8'
+            'password'=>'required|digits:8',
+    
         ]);
 
         $credentials=$request->except('_token');

@@ -1,6 +1,7 @@
 @extends('backend.master')
 
 @section('content')
+<div style="padding:15px">
 <h2 style="text-align:center">Location</h2>
 <a href="{{route('location.create')}}" class="btn btn-outline-primary text-black">Add Location</a>
 
@@ -14,15 +15,15 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($locations as $data)
+  @foreach($locations as $key=>$data)
     <tr>
-      <th scope="row">{{$data->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$data->name}}</td>
       <td>{{$data->address}}</td>
       <td>
         <a class="btn btn-success" href="{{route('location.view',$data->id)}}">View</a>
         <a class="btn btn-primary" href="{{route('location.edit',$data->id)}}">Edit</a>
-        <a class="btn btn-danger" href="{{route('location.delete',$data->id)}}">Delete</a>
+        <!-- <a class="btn btn-danger" href="{{route('location.delete',$data->id)}}">Delete</a> -->
       </td>
     </tr>
   @endforeach
@@ -32,6 +33,6 @@
 {{$locations->links()}}
 
 
-
+</div>
 
 @endsection

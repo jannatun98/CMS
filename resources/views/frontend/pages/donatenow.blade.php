@@ -2,45 +2,56 @@
 @section('content')
 
 <div style="padding:15px">
-<h2 style="text-align:center">Donation</h2>
-<form action="{{route('user.donatenowsubmit')}}" method="post">
-@if($errors->any())
-        @foreach($errors->all() as $error)
-          <p class="alert alert-danger">{{$error}}</p>
-        @endforeach
-    @endif
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-7">
+        <div class="card p-3 py-4">
+          <div class="text-center mt-3">
+            <span class="rounded text-white">
+              <h3><b>Donate Here!</b></h3>
+            </span>
 
-    @if(session()->has('message'))
-    <p class="alert alert-success">{{session()->get('message')}}</p>
-    @endif
+            <form action="{{route('user.donatenowsubmit',$crisis->id)}}" method="post">
+              @if($errors->any())
+              @foreach($errors->all() as $error)
+              <p class="alert alert-danger">{{$error}}</p>
+              @endforeach
+              @endif
+
+              @if(session()->has('message'))
+              <p class="alert alert-success">{{session()->get('message')}}</p>
+              @endif
 
 
-    @csrf
-  <div class="form-group" >
-    <label for="crisis_id">Crisis Name</label>
-    <select class="form-control" name="crisis_id" id="crisis_id" >
-      @foreach($crisis as $do)
-      <option value="{{$do->id}}">{{$do->name}}</option>
-      @endforeach
-    </select>
+              @csrf
+              <div class="form-group">
+                <label for="crisis_id"><b>Crisis Name</b></label>
+                <input readonly type="text" class="form-control" name="crisis_id" value="{{$crisis->name}}">
 
-    <label for="donor_id">Donor Name</label>
-    <select class="form-control" name="donor_id" id="donor_id" >
-      @foreach($donor as $don)
-      <option value="{{$don->id}}">{{$don->name}}</option>
-      @endforeach
-    </select>
-    
+                <label for="name"><b>Donor Name</b></label>
+                <input readonly type="text" class="form-control" name="name" value="{{auth()->user()->name}}">
 
-    <label for="donate_amount">Donate Amount</label>
-    <input required min="500" id="donate_amount" type="number" class="form-control" name="donate_amount">
-    <label for="payment_method">Payment Method</label>
-    <input required id="payment_method" type="text" class="form-control" name="payment_method">
-    <label for="transaction_id">Transaction ID</label>
-    <input required id="transaction_id" type="text" class="form-control" name="transaction_id">
+
+                <label for="donate_amount"><b>Donate Amount</b></label>
+                <input required min="100" max="{{$crisis->amount_need-$crisis->amount_raised}}" id="donate_amount" type="number" class="form-control" name="donate_amount" placeholder="{{$crisis->amount_need-$crisis->amount_raised}} Tk to go">
+
+                <label for="payment_method"><b>Payment Method</b></label>
+                <select name="payment_method" id="payment_method" class="form-control">
+                  <option value="Credit Card"><b>Credit Card</b></option>
+                  <option value="Paypal"><b>Paypal</b></option>
+                  <option value="Paypal"><b>bkash</b></option>
+                </select>
+
+                <label for="transaction_id"><b>Transaction ID</b></label>
+                <input required id="transaction_id" type="text" class="form-control" name="transaction_id">
+              </div>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-</form>
 </div>
 
 

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('crisistype_id')->constrained('crisistypes');
             $table->string('from_date');
             $table->string('to_date');
-            $table->foreignId('volunteer_id');
+            $table->foreignId('volunteer_id')->nullable();
             $table->timestamps();
         });
     }

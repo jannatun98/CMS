@@ -1,7 +1,8 @@
 @extends('backend.master')
 @section('content')
+<div style="padding:15px">
 <h2 style="text-align:center">Volunteer To Crisis</h2>
-<a href="{{route('volunteertocrisis.create')}}" class="btn btn-outline-primary text black">Add a Volunteer to Crisis</a>
+<!-- <a href="{{route('volunteertocrisis.create')}}" class="btn btn-outline-primary text black">Add a Volunteer to Crisis</a> -->
 
 <table class="table table-primary table-striped ">
 <thead>
@@ -14,15 +15,15 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($volunteertocri as $volunteertocris)
+    @foreach($volunteertocri as $key=>$data)
+    
     <tr>
-    <th scope="row">{{$volunteertocris->id}}</th>
-    <td scope="row">{{$volunteertocris->crisis_id}}</td>
-    <td scope="row">{{$volunteertocris->volunteer_id}}</td>
+    <th scope="row">{{$key+1}}</th>
+    <td scope="row">{{$data->Crisis->name}}</td>
+    <td scope="row">{{$data->User->name}}</td>
     <td>
-      <a class="btn btn-success" href="{{route('volunteertocrisis.view',$volunteertocris->id)}}">View</a>
-      <a class="btn btn-primary" href="{{route('volunteertocrisis.edit',$volunteertocris->id)}}">Edit</a>
-      <a class="btn btn-danger" href="{{route('volunteertocrisis.delete',$volunteertocris->id)}}">Delete</a>
+      <a class="btn btn-success" href="{{route('volunteertocrisis.view',$data->id)}}">View</a>
+      <a class="btn btn-danger" href="{{route('volunteertocrisis.delete',$data->id)}}">Delete</a>
     </td>
 
     </tr>
@@ -35,5 +36,6 @@
 
 {{$volunteertocri->links()}}
 
+</div>
 
 @endsection

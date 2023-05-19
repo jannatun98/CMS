@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
     public function location(){
-       $locations=Location::paginate(5);
+       $locations=Location::paginate(20);
         return view('backend.pages.location.location',compact('locations'));
 
     }
@@ -36,11 +36,11 @@ class LocationController extends Controller
         return redirect()->route('location');
     }
 
-    public function location_delete($id){
-        Location::find($id)->delete();
-        toastr()->success('Location deleted successfully.');
-        return redirect()->back();
-    }
+    // public function location_delete($id){
+    //     Location::find($id)->delete();
+    //     toastr()->success('Location deleted successfully.');
+    //     return redirect()->back();
+    // }
 
 
     public function location_edit($id){
