@@ -6,12 +6,28 @@ use App\Http\Controllers\Controller;
 use App\Models\Crisis;
 use App\Models\Crisistypes;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CrisistypesController extends Controller
 {
     public function crisistypes(){
-        $crisistypes=Crisistypes::paginate(20);
-        return view('backend.pages.crisistypes.crisistypes',compact('crisistypes'));
+        if (request()->ajax()) {
+            $data = Crisistypes::all();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                    ->addColumn('date',function ($row){
+                    return date('Y-M-d',strtotime($row['created_at']));
+                })
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a>
+                        <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>
+                        <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">View</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('backend.pages.crisistypes.crisistypes');
 
     }
 
